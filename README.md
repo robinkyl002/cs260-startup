@@ -43,7 +43,7 @@ Have you ever really wanted a specific meal, but didn't have the recipe on hand?
 
 I am going to use the required technologies in the following ways.
 
-- **HTML** - Build the structure of the site, 4 HTML pages -> login, my recipes, create recipe page,
+- **HTML** - Build the structure of the site, 3 HTML pages -> login, my recipes, create recipe page
 - **CSS** - Responsive Design, color schemes, lists to contain recipes
 - **React** - Single page application with routing between views,
 - **Service** - Endpoints for authentication, storing and retrieving recipes third party call for recipe suggestions
