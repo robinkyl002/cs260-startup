@@ -1,6 +1,6 @@
 # CS 260 Notes
 
-[My startup](https://simon.cs260.click)
+[My startup](https://startup.lets-eat.click)
 
 ## Helpful links
 
@@ -9,6 +9,14 @@
 - [MDN](https://developer.mozilla.org)
 
 ## AWS Notes
+
+- Caddy separates traffic to subdomains
+-
+
+### 1/16/25 Class - Server
+
+- DNS was established to make it easier to remember how to access a site without needing to remember IP
+-
 
 ## HTML Notes
 
