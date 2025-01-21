@@ -25,4 +25,44 @@
 
 ## HTML Notes
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+```
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>First HTML</title>
+</head>
+
+<body>
+  Hello World
+</body>
+
+</html>
+
+```
+
+### DOM (Document object Model)
+
+HTMl establishes the data tree that is rendeered based on the DOM
+
+Live server extension allows you to see what is happening with code without pushing to an actual server.
+
+```
+<body>
+  <p>Hello World</p>
+
+  <img width="10" alt="beach" src="image.png">
+</body>
+```
+
+| Element | Meaning |
+| html | page contatiner |
+| head | Header info |
+| title | title of page |
+| body | Entire content body of page |
+| main | main portion of page |
+
+| Character | Entity |
+| & | &amp; |
+| < | &lt; |
+| > | &gt; |
