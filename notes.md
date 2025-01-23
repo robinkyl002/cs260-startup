@@ -70,4 +70,10 @@ Live server extension allows you to see what is happening with code without push
 | < | &lt; |
 | > | &gt; |
 
+### Notes from CodePen practice
+
+- Structure of img tag
+  - `<img href="link" alt="alternative text" width=300 height=300/>`
+- Tables are set up by row first (`<tr>`), then cell in each row (`<td>`)
+
 ## CSS Notes
