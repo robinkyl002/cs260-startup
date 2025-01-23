@@ -77,3 +77,22 @@ Live server extension allows you to see what is happening with code without push
 - Tables are set up by row first (`<tr>`), then cell in each row (`<td>`)
 
 ## CSS Notes
+
+### Class Notes
+
+- text is considered node in the DOM
+- CSS format -> selector, property, value
+- can do inline CSS, style tag, or separate style sheet
+
+| Selector      | Meaning                                  | Example           |
+| ------------- | ---------------------------------------- | ----------------- |
+| element       | HTML element                             | p, h1             |
+| id            | unique identifier                        | #cow, #savage     |
+| class         | selector to group a portion of selectors | .rounders, .sides |
+| Element class | elements with specific name and class    | p.highlight       |
+| List          | any of given selectors                   | body, section     |
+| Descendant    | any of specific selector under parent    | body p            |
+| Child         | elements directly under parent           | section > p       |
+| Pseudo        | a                                        | b                 |
+
+- Use \* to apply styling to every element in the program
