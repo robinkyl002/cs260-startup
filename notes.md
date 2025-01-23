@@ -25,6 +25,9 @@
 
 ## HTML Notes
 
+- [HTML Structure CodePen](https://codepen.io/robinkyl002/pen/MYgqLqg)
+-
+
 ```
 <!DOCTYPE html>
 <html lang="en">
