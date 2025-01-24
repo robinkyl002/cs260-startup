@@ -26,7 +26,7 @@
 ## HTML Notes
 
 - [HTML Structure CodePen](https://codepen.io/robinkyl002/pen/MYgqLqg)
--
+- [HTML Input](https://codepen.io/robinkyl002/pen/OPLBqxd?editors=1010)
 
 ```
 <!DOCTYPE html>
