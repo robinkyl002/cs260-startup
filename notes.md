@@ -27,6 +27,7 @@
 
 - [HTML Structure CodePen](https://codepen.io/robinkyl002/pen/MYgqLqg)
 - [HTML Input](https://codepen.io/robinkyl002/pen/OPLBqxd?editors=1010)
+- [HTML Media](https://codepen.io/robinkyl002/pen/emOQYxv?editors=1000)
 
 ```
 <!DOCTYPE html>
