@@ -60,15 +60,15 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **HTML pages** - I did not complete this part of the deliverable.
-- [ ] **Proper HTML element usage** - I did not complete this part of the deliverable.
-- [ ] **Links** - I did not complete this part of the deliverable.
-- [ ] **Text** - I did not complete this part of the deliverable.
-- [ ] **3rd party API placeholder** - I did not complete this part of the deliverable.
-- [ ] **Images** - I did not complete this part of the deliverable.
-- [ ] **Login placeholder** - I did not complete this part of the deliverable.
-- [ ] **DB data placeholder** - I did not complete this part of the deliverable.
-- [ ] **WebSocket placeholder** - I did not complete this part of the deliverable.
+- [x] **HTML pages** - Created 3 pages. `index.html` for login, `recipes.html` to see all recipes, `new.html` to add a recipe, and `view.html` to view details of a recipe
+- [x] **Proper HTML element usage** - I spent time experimenting with many different tags and utilized header, footer, main, a, input, img, and other elements in my code.
+- [x] **Links** - Links between views and link to Github repo
+- [x] **Text** - view.html page displays recipe as text with an image
+- [x] **3rd party API placeholder** - Placeholder for suggested recipes from 3rd party API
+- [x] **Images** - Added images for French Toast recipe
+- [x] **Login placeholder** - Added placeholder for authentication on index.html
+- [x] **DB data placeholder** - Placeholder with preview for recipe on recipes.html and recipe details on view.html
+- [x] **WebSocket placeholder** - Placeholder for notifications about two most recent recipes added by other users
 
 ## 🚀 CSS deliverable
 
