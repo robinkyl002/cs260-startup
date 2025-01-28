@@ -97,3 +97,76 @@ Live server extension allows you to see what is happening with code without push
 | Pseudo        | a                                        | b                 |
 
 - Use \* to apply styling to every element in the program
+
+- Responsive design
+  - utilize metadata
+
+```
+aside {
+  float: right;
+  padding: 3em;
+  margin: 0.5em;
+  float: inline-end;
+}
+```
+
+- float only works to put something to one side or the other
+- Display declaration
+  - block takes up entire width of page
+  - none does not show up
+  - inline takes up a portion of the width - right next to other inline items (define height and width of content)
+  - flex keeps objects evenly distributed
+  - grid - laid out in grid format and has rules
+
+```
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-auto-rows: 300 px;
+  grid-gap: 1em;
+}
+```
+
+```
+.container {
+  display: flex;
+}
+
+// will not grow or shrink
+.item {
+  flex: 0 0 50 px
+}
+```
+
+- grow, shrink, basis (default)
+- grow or shrink is the portion out of the available space that should be used by the element
+- block display type is default for div
+- inline display type is default for span
+- star selector (`*`) selects all elements in the DOM
+- Media queries
+
+```
+@media (orientation: portrait) {
+  div {
+    transform: rotate(270deg);
+  }
+}
+```
+
+```
+@media (orientation: portrait) {
+  body {
+    flex-direction: column;
+  }
+}
+
+@media ((orientation: portrait) and (max-height: 500px) {
+  aside {
+    display: none;
+  }
+}
+```
+
+- CSS Frameworks
+  - contains styles already built that you can import and use
+  - import using `<link rel="stylesheet">` and `<script src="link">`
