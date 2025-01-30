@@ -79,6 +79,8 @@ Live server extension allows you to see what is happening with code without push
 
 ## CSS Notes
 
+- [CSS practice](https://codepen.io/robinkyl002/pen/jENdbJo)
+
 ### Class Notes
 
 - text is considered node in the DOM
