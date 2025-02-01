@@ -9,7 +9,7 @@ header {
 }
 
 main {
-    flex: 1;
+    flex: 1 calc(100vh - 115px);
 }
 
 footer {
