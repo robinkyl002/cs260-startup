@@ -10,6 +10,10 @@ header {
 
 main {
     flex: 1 calc(100vh - 115px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 footer {
@@ -34,4 +38,10 @@ menu .nav-item {
 
 footer a {
     float: right;
+}
+
+@media (max-height: 650px) {
+    footer {
+        display: none;
+    }
 }
