@@ -36,6 +36,10 @@ menu .nav-item {
     padding-bottom: 1.0em;    
 }
 
+.navbar-custom {
+    background-color: #a1f7d8;
+}
+
 footer a {
     float: right;
 }
