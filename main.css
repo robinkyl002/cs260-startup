@@ -32,7 +32,8 @@ menu {
   }
   
 menu .nav-item {
-    padding: 0 0.3em;    
+    padding: 0 0.3em;
+    padding-bottom: 1.0em;    
 }
 
 footer a {
