@@ -13,7 +13,8 @@ img {
 }
 
 h1 {
-  align-self: center; 
+    padding-top: 0.75em;
+    align-self: center; 
 }
 
 .recipe-details {
