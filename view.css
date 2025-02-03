@@ -1,0 +1,23 @@
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: start;
+    padding: 0 15vw;
+}
+
+img {
+    max-width: 50%;
+    max-height: 50%;
+    align-self: center;
+}
+
+h1 {
+  align-self: center; 
+}
+
+.recipe-details {
+    text-align: start;
+    align-items: start;
+    padding: 0.5em 2em;
+}
