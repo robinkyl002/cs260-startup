@@ -9,7 +9,11 @@ header {
 }
 
 main {
-    flex: 1 calc(100vh - 115px);
+    flex: 1 calc(100vh - 115px); 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
 }
 
 footer {
@@ -40,7 +44,7 @@ footer a {
     float: right;
 }
 
-@media (max-height: 500px) {
+@media (max-height: 450px) {
     header {
         display: none;
     }
