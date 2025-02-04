@@ -28,25 +28,28 @@
         </header>
         
         <main id="new-recipe">
-            <h2>Add a new Recipe</h2>
+            <div id="page-title">
+                <h2>Add a new Recipe</h2>
+            </div>
             <form method="get" action="recipes.html">
-                <div>
-                    <label for="recipe-name">Recipe name: </label>
-                    <input type="text" id="recipe-name">
+                <div class="input-group mb-3">
+                    <label for="recipe-name" class="input-group-text">Recipe name: </label>
+                    <input type="text" class="form-control" id="recipe-name">
                 </div>
-                <br />
-                <div>
-                    <label for="recipe-details">Recipe instructions: </label>
-                    <textarea id="recipe-details" name="varTextArea" placeholder="Include ingredients, instructions, and any other details you want to remember"></textarea>
+                <div class="input-group mb-3">
+                    <label for="recipe-ingredients" class="input-group-text">Recipe Ingredients: </span>
+                    <textarea id="recipe-details" class="form-control" aria-label="Recipe Ingredients"></textarea>
                 </div>
-                <br />
-                <div>
-                    <label for="recipe-picture">Add a picture: </label>
-                    <input type="file" id="recipe-picture" name="varFile" accept="image/*" multiple />
+                <div class="input-group mb-3">
+                    <label for="recipe-instructions" class="input-group-text">Recipe Instructions: </span>
+                    <textarea class="form-control" aria-label="Recipe Instructions"></textarea>
                 </div>
-                <br />
-                <button type="submit">Add</button>
-                <button type="submit">Cancel</button>
+                <div class="input-group mb-3">
+                    <label for="recipe-picture" class="input-group-text">Add a picture: </span>
+                    <input type="file" class="form-control" id="recipe-picture" aria-label="Add a picture: " name="varFile" accept="image/*" multiple />
+                </div>
+                <button class ="btn btn-primary" type="submit">Add</button>
+                <button class="btn btn-secondary" type="submit">Cancel</button>
             </form>
         </main>
         
