@@ -5,14 +5,6 @@ main {
     justify-content: space-around;
 }
 
-/* h2 {
-    flex: 1;
-} */
-
-/* #page-title {
-    flex: 0 90px;
-} */
-
 form {
     padding: 1.0em;
     display: flex;
