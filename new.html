@@ -32,7 +32,6 @@
                 <h2>Add a new Recipe</h2>
             </div>
             <form method="get" action="recipes.html">
-                <div id="recipe-text-inputs">
                 <div class="input-group mb-3">
                     <label for="recipe-name" class="form-label">Recipe name: </label>
                     <input type="text" class="form-control" id="recipe-name">
@@ -49,11 +48,10 @@
                     <label for="recipe-picture" class="form-label">Add a picture: </span>
                     <input type="file" class="form-control" id="recipe-picture" aria-label="Add a picture: " name="varFile" accept="image/*" multiple />
                 </div>
-                </div>
-                <div id="new-recipe-buttons" >
+                <span id="new-recipe-buttons">
                     <button class ="btn btn-primary" type="submit">Add</button>
                     <button class="btn btn-secondary" type="submit">Cancel</button>
-                </div>
+                </span>
             </form>
         </main>
         
