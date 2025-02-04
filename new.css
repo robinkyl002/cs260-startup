@@ -1,8 +1,15 @@
 main {
-    /* display: flex;
+    /* flex: 1 calc(100vh - 115px); 
+    display: flex;
     flex-direction: column; */
     align-items: center;
     justify-content: space-around;
+}
+
+#page-title {
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    flex: 1;
 }
 
 form {
@@ -10,10 +17,11 @@ form {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    align-items: center;
 }
 
 #new-recipe {
-    /* flex: 4; */
+    flex: 4;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -36,4 +44,15 @@ textarea {
     padding: 1.0em;
     width: 100%;
     resize: none;
+}
+
+label {
+    width: 100%;
+}
+
+#new-recipe-buttons {
+    padding: 0 35vw;
+    align-self: center;
+    align-items: center;
+    width: 100%;
 }
