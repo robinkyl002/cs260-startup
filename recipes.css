@@ -2,7 +2,26 @@
     padding: 15px;
 }
 
+main {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+aside {
+    flex: 1;
+    width: 30%;
+    padding-left: 15px;
+    margin-left: 15px;
+    align-self: end;
+    background-color: lightgray;
+}
+
 .row {
+    flex: 1;
     padding: 50px 20px;
     width: 100vw;
+}
+
+#suggested-recipes {
+    flex: 1;
 }
