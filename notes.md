@@ -175,7 +175,7 @@ aside {
   - contains styles already built that you can import and use
   - import using `<link rel="stylesheet">` and `<script src="link">`
 
-## JavaScript/React Notes
+## JavaScript
 
 ### Class Notes
 
@@ -252,3 +252,122 @@ giveMeAJoke.getRandomDadJoke((joke) => {
 
 - Use VS code to debug backend JS, use browser tools to debug frontend JS
 - use `"runtimeArgs": [--watch]` to let changes you apply be detected even while running the code
+
+## React Notes
+
+### Class Notes
+
+- web framework - JS that someone already wrote
+- Simplify common patterns
+- provide common components - reuse things, replace one piece with another
+- improve performance - avoids issues that cause slowness
+- increase device coverage - handle issues that prevent rendering on different devices or browsers
+
+- Jordan Walke created React
+- JSX is major part and combines JS with HTML
+- Babel understands JSX and changes it to JS and HTML
+
+```
+//JSX
+const jsx = <p>Hello World</p>
+//Babel transpiled
+
+//JS
+const jsx = React.createElement("p", null, "Hello world")
+
+//browser rendered (DOM)
+<p>Hello World</p>
+```
+
+- Use Babel in Codepen
+
+```
+//HTML
+<div id="root">loading...</div>
+
+
+//JS
+function Hello() {
+  return <div>Hello React</div>;
+};
+
+const root = ReactDOM.createRoot(document.querySelector('#root'));
+root.render(<Hello />)
+
+// could use
+const root = ReactDOM.createRoot(document.querySelector('#root'));
+root.render(<div>Hello Dog</div>)
+```
+
+- components are identified with caps
+
+```
+const Hello = ({phrase}) => {
+  return (
+    <div>
+      <p>Hello {phrase}</p>
+    </div>
+  );
+};
+
+const root = ReactDOM.createRoot(document.querySelector('#root'));
+root.render(<Hello phrase="friends"/>)
+
+// root.render(<div><Hello phrase="friends" /><Hello phrase="enemies" /></div>)
+```
+
+State
+
+```
+const Hello = () => {
+  const [color, setColor] = React.useState(initColor);
+  function changeColor() {
+    setColor(color === "red" ? "green" : "red");
+  }
+  return (
+    <div>
+    <p style ={{color: color, backgroundColor: initColor }}Hello React</p>
+    <button onClick={changeColor}>change</button>
+    </div>
+  );
+};
+
+const root = ReactDOM.createRoot(document.querySelector('#root'));
+root.render(<Hello initColor="blue" />)
+```
+
+#### children
+
+```
+function Header() {
+  return (
+    <nav className=>
+  )
+}
+
+function Link()
+```
+
+#### Router
+
+multi-page application
+
+- duplicate HTML
+- reloading everything over again with each click
+
+single page application
+
+- one HTML file
+- components that are pulled in
+
+BrowserRouter
+
+- Use nav link to access and render code for selected path (link anchor tag)
+- map the route to the components
+- maintains state and tracks previous paths
+- can create subcomponents
+- navlink used in conjunction with router (if you create new Router, you need a new NavLink)
+
+Toolchain to compile JSX
+
+- Use Vite to run Babel and create hotloading server
