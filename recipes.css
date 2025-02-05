@@ -1,27 +1,32 @@
 .card {
-    padding: 15px;
+    padding: 10px;
 }
 
 main {
-    margin-top: 25px;
-    margin-bottom: 25px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    height: 100vh;
 }
 
 aside {
-    flex: 1;
+    flex: 0 50px;
     width: 30%;
     padding-left: 15px;
     margin-left: 15px;
     align-self: end;
-    background-color: lightgray;
+    /* background-color: lightgray; */
 }
 
 .row {
     flex: 1;
-    padding: 50px 20px;
+    padding: 10px 10px;
     width: 100vw;
 }
 
 #suggested-recipes {
     flex: 1;
+}
+
+img {
+    max-height: 60%;
 }
