@@ -74,12 +74,12 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Header, footer, and main content body** - I did not complete this part of the deliverable.
-- [ ] **Navigation elements** - I did not complete this part of the deliverable.
-- [ ] **Responsive to window resizing** - I did not complete this part of the deliverable.
-- [ ] **Application elements** - I did not complete this part of the deliverable.
-- [ ] **Application text content** - I did not complete this part of the deliverable.
-- [ ] **Application images** - I did not complete this part of the deliverable.
+- [x] **Header, footer, and main content body** - used common `main.css` file to handle to style these, then added additional files to handle specific styling for each of the pages
+- [x] **Navigation elements** - Utilized a Bootstrap navbar, including the navbar brand for the title.
+- [x] **Responsive to window resizing** - Utilized Bootstrap and flex
+- [x] **Application elements** - used flex and padding to help make sure everything lined up correctly
+- [x] **Application text content** - used bootstrap to set text to font without serifs
+- [x] **Application images** - Utilized images for on `view.html` and `recipes.html`
 
 ## 🚀 React part 1: Routing deliverable
 
