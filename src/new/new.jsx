@@ -9,42 +9,42 @@ export function New() {
         <h2>Add a new Recipe</h2>
       </div>
       <form method="get" action="recipes.html">
-        <div class="input-group mb-3">
-          <label for="recipe-name" class="form-label">
+        <div className="input-group mb-3">
+          <label for="recipe-name" className="form-label">
             Recipe name:
           </label>
-          <input type="text" class="form-control" id="recipe-name"></input>
+          <input type="text" className="form-control" id="recipe-name"></input>
         </div>
-        <div class="input-group mb-3">
-          <label for="recipe-ingredients" class="form-label">
+        <div className="input-group mb-3">
+          <label for="recipe-ingredients" className="form-label">
             Recipe Ingredients:
           </label>
           <textarea
             id="recipe-details"
-            class="form-control"
+            className="form-control"
             aria-label="Recipe Ingredients"
             rows="15"
             cols="50"
           ></textarea>
         </div>
-        <div class="input-group mb-3">
-          <label for="recipe-instructions" class="form-label">
+        <div className="input-group mb-3">
+          <label for="recipe-instructions" className="form-label">
             Recipe Instructions:
           </label>
           <textarea
-            class="form-control"
+            className="form-control"
             aria-label="Recipe Instructions"
             rows="15"
             cols="50"
           ></textarea>
         </div>
-        <div class="input-group mb-3">
-          <label for="recipe-picture" class="form-label">
+        <div className="input-group mb-3">
+          <label for="recipe-picture" className="form-label">
             Add a picture:
           </label>
           <input
             type="file"
-            class="form-control"
+            className="form-control"
             id="recipe-picture"
             aria-label="Add a picture: "
             name="varFile"
@@ -53,10 +53,10 @@ export function New() {
           />
         </div>
         <span id="new-recipe-buttons">
-          <button class="btn btn-primary" type="submit">
+          <button className="btn btn-primary" type="submit">
             Add
           </button>
-          <button class="btn btn-secondary" type="submit">
+          <button className="btn btn-secondary" type="submit">
             Cancel
           </button>
         </span>
