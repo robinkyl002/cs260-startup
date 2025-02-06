@@ -255,6 +255,8 @@ giveMeAJoke.getRandomDadJoke((joke) => {
 
 ## React Notes
 
+- [React Components Codepen](https://codepen.io/robinkyl002/pen/ogvrpEb?editors=0110)
+
 ### Class Notes
 
 - web framework - JS that someone already wrote
