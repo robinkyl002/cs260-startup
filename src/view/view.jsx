@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './view.css'
+
 export function View() {
   return (
     <main id="recipe-view">
