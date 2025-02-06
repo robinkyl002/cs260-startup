@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./new.css";
+
 export function New() {
   return (
     <main id="new-recipe">
