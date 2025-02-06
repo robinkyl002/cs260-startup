@@ -37,9 +37,16 @@ export default function App() {
                 </nav>
             </header>
 
-            <main className="container-fluid bg-white text-center">
+            {/* <main className="container-fluid bg-white text-center">
                 Placeholder for app components
-            </main>
+            </main> */}
+            <Routes>
+                <Route path='/' element={ <Login /> } exact />
+                <Route path='/recipes' element={ <Recipes /> } />
+                <Route path='/new' element={ <New /> } />
+                <Route path='/view' element={ <View /> } />
+                <Route path='*' element={ <NotFound /> } />
+            </Routes>
 
             <footer className="bg-dark text-white-50">
                 <div className="container-fluid">
