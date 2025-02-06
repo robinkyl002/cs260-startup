@@ -4,7 +4,7 @@ import './app.css';
 
 export default function App() {
   return (
-    <div className='app bg-dark text-light'>
+    <div className='app bg-light text-dark'>
         <header class="container-fluid">
             <nav class="navbar fixed-top navbar-custom">
                 <div class="container-fluid">
