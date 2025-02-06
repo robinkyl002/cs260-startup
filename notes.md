@@ -256,6 +256,7 @@ giveMeAJoke.getRandomDadJoke((joke) => {
 ## React Notes
 
 - [React Components Codepen](https://codepen.io/robinkyl002/pen/ogvrpEb?editors=0110)
+- [React Routes](https://codepen.io/robinkyl002/pen/GgKbxgL?editors=0110)
 
 ### Class Notes
 
