@@ -1,5 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./recipes.css";
 
 export function Recipes() {
   return (
@@ -37,7 +38,7 @@ export function Recipes() {
         <div className="col">
           <div className="card">
             <img
-              src="public/apple-fritter.jpg"
+              src="/apple-fritter.jpg"
               className="card-img-top"
               alt="apple fritter"
             />
@@ -50,7 +51,7 @@ export function Recipes() {
         <div className="col">
           <div className="card">
             <img
-              src="public/chocolate-chip-cookies.jpeg"
+              src="/chocolate-chip-cookies.jpeg"
               className="card-img-top"
               alt="chocolate chip cookies"
             />
@@ -63,7 +64,7 @@ export function Recipes() {
         <div className="col">
           <div className="card">
             <img
-              src="public/shepherds-pie.jpg"
+              src="/shepherds-pie.jpg"
               className="card-img-top"
               alt="Shepherd's Pie"
             />
@@ -76,7 +77,7 @@ export function Recipes() {
         <div className="col">
           <div className="card">
             <img
-              src="public/Spaghetti.jpg"
+              src="/Spaghetti.jpg"
               className="card-img-top"
               alt="spaghetti"
             />
