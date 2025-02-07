@@ -6,7 +6,11 @@ export function View() {
   return (
     <main id="recipe-view">
       <div id="recipe_image">
-        <img alt="French Toast" src="public/french-toast.jpg" />
+        <img
+          id="current-recipe"
+          alt="French Toast"
+          src="public/french-toast.jpg"
+        />
       </div>
       <div id="recipe-text-elements">
         <h1>French Toast</h1>
