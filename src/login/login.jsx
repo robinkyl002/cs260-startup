@@ -29,12 +29,14 @@ export function Login() {
             aria-describedby="password"
           />
         </div>
-        <button type="submit" className="btn btn-primary">
-          Login
-        </button>
-        <button type="submit" className="btn btn-secondary">
-          Create
-        </button>
+        <span id="login-buttons">
+          <button type="submit" className="btn btn-primary">
+            Login
+          </button>
+          <button type="submit" className="btn btn-secondary">
+            Create
+          </button>
+        </span>
       </form>
     </main>
   );
