@@ -4,7 +4,7 @@ import "./recipes.css";
 
 export function Recipes() {
   return (
-    <main>
+    <main id="all-recipes">
       <aside id="users">
         <span>User: Cooking Fanatic</span>
         <ul>
