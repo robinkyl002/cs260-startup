@@ -85,9 +85,9 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Bundled using Vite** - I did not complete this part of the deliverable.
-- [ ] **Components** - I did not complete this part of the deliverable.
-- [ ] **Router** - Routing between login and voting components.
+- [x] **Bundled using Vite** - Easy to install and use vite
+- [x] **Components** - Ported over all of my HTML and CSS, but it took some work, and I had to make some changes to my CSS files as a couple of my pages were not displaying how they should
+- [x] **Router** - Routing between login and components for new recipe as well as viewing all recipes. Routing from all recipes to single recipe.
 
 ## 🚀 React part 2: Reactivity
 
