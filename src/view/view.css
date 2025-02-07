@@ -1,35 +1,35 @@
-main {
-    justify-content: left;
-    align-items: start;
+#recipe-view {
+  justify-content: left;
+  align-items: start;
 }
 
 img {
-    align-self: center;
-    width: 100%;
-    padding: 0 20vw;
+  align-self: center;
+  width: 100%;
+  padding: 0 20vw;
 }
 
 #recipe-image {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    padding: 0 15vw;
-    width: 75%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0 15vw;
+  width: 75%;
 }
 
 h1 {
-    padding-top: 0.75em;
-    text-align: center;
+  padding-top: 0.75em;
+  text-align: center;
 }
 
 .recipe-details {
-    text-align: start;
-    align-items: start;
+  text-align: start;
+  align-items: start;
 }
 
 #recipe-text-elements {
-    flex: 4;
-    display: flex;
-    flex-direction: column;
-    padding: 0 25vw
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+  padding: 0 25vw;
 }
