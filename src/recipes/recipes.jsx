@@ -22,7 +22,7 @@ export function Recipes() {
           <div className="card">
             <img
               src="/french-toast.jpg"
-              className="card-img-top"
+              className="card-img-top my-recipe-images"
               alt="french toast"
             />
             <div className="card-body">
@@ -39,7 +39,7 @@ export function Recipes() {
           <div className="card">
             <img
               src="/apple-fritter.jpg"
-              className="card-img-top"
+              className="card-img-top my-recipe-images"
               alt="apple fritter"
             />
             <div className="card-body">
@@ -52,7 +52,7 @@ export function Recipes() {
           <div className="card">
             <img
               src="/chocolate-chip-cookies.jpeg"
-              className="card-img-top"
+              className="card-img-top my-recipe-images"
               alt="chocolate chip cookies"
             />
             <div className="card-body">
@@ -65,7 +65,7 @@ export function Recipes() {
           <div className="card">
             <img
               src="/shepherds-pie.jpg"
-              className="card-img-top"
+              className="card-img-top my-recipe-images"
               alt="Shepherd's Pie"
             />
             <div className="card-body">
@@ -78,7 +78,7 @@ export function Recipes() {
           <div className="card">
             <img
               src="/Spaghetti.jpg"
-              className="card-img-top"
+              className="card-img-top my-recipe-images"
               alt="spaghetti"
             />
             <div className="card-body">
