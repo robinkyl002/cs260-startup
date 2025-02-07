@@ -1,6 +1,7 @@
-import React from "react";
+import React, { use } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./recipes.css";
+import { useNavigate } from "react-router-dom";
 
 export function Recipes() {
   return (
@@ -27,11 +28,7 @@ export function Recipes() {
             />
             <div className="card-body">
               <h4 className="card-title">French Toast</h4>
-              <form method="get" action="view.html">
-                <button type="submit" className="btn btn-primary">
-                  View Recipe
-                </button>
-              </form>
+              <ViewRecipe />
             </div>
           </div>
         </div>
@@ -109,5 +106,19 @@ export function Recipes() {
         </div>
       </div>
     </main>
+  );
+}
+
+function ViewRecipe() {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/view");
+  };
+
+  return (
+    <button class="btn btn-primary" onClick={handleClick}>
+      View Recipe
+    </button>
   );
 }
