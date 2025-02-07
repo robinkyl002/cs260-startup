@@ -5,7 +5,6 @@
 #all-recipes {
   margin-top: 15px;
   margin-bottom: 15px;
-  height: 100vh;
 }
 
 aside {
@@ -30,6 +29,7 @@ aside {
 
 img {
   max-height: 60%;
+  padding: 0;
 }
 
 h2 {
