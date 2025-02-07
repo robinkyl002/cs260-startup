@@ -1,57 +1,57 @@
 .app {
-    display: flex;
-    flex-direction: column;
-    min-width: 400 px;
+  display: flex;
+  flex-direction: column;
+  min-width: 400 px;
 }
 
 header {
-    flex: 0 75px;
+  flex: 0 75px;
 }
 
 main {
-    flex: 1 calc(100vh - 115px); 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
+  flex: 1 calc(100vh - 115px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 footer {
-    flex: 0 40px;
+  flex: 0 40px;
 }
 
 menu {
-    flex: 1;
-    display: flex;
-    flex-direction: row !important;
-    list-style: none;
+  flex: 1;
+  display: flex;
+  flex-direction: row !important;
+  list-style: none;
 }
 
 .navbar-brand {
-    padding-left: 0.3em;
-  }
-  
+  padding-left: 0.3em;
+}
+
 menu .nav-item {
-    padding: 0 0.3em;
-    padding-bottom: 1.0em;    
+  padding: 0 0.3em;
+  padding-bottom: 1em;
 }
 
 .navbar-custom {
-    background-color: #a1f7d8;
+  background-color: #a1f7d8;
 }
 
 footer a {
-    float: right;
+  float: right;
 }
 
 @media (max-height: 450px) {
-    header {
-        display: none;
-    }
-    footer {
-        display: none;
-    }
-    main {
-        flex: 1 100vh;
-    }
+  header {
+    display: none;
+  }
+  footer {
+    display: none;
+  }
+  main {
+    flex: 1 100vh;
+  }
 }
