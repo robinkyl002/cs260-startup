@@ -374,3 +374,54 @@ BrowserRouter
 Toolchain to compile JSX
 
 - Use Vite to run Babel and create hotloading server
+
+#### JavaScript
+
+- `console.log()` and `console.time()` are useful when running a lot of code without needing to step through everything or tracking async function
+
+Arrays
+
+```
+const a = [1, 2, 3];
+
+console.log(a.map((i) => i + i));
+
+console.log(a.reduce((v1, v2) => v1 + v2));
+
+console.log(a.sort((v1, v2) => v2 - v1));
+
+a.push(4);
+console.log(a.length);
+
+```
+
+Objects
+
+- map of key value pairs (maps)
+
+```
+const obj = {
+  a: 3,
+  b: 'fish',
+  c: [1, true, 'dog'],
+  d: { e: false},
+  f: function () {
+    return 'hello';
+  },
+};
+
+console.log(Object.entries(obj));
+console.log(Object.keys(obj));
+console.log(Object.values(obj));
+```
+
+JSON
+
+- text serialized representation of JS object
+- no undefined or functions in JSON
+- `const json = JSON.stringify(obj)` converts to JSON
+- `const jsobject = JSON.parse(json)` converts to JS
+
+Local storage
+
+- Store information locally in the individual user's browser
