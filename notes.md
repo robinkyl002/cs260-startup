@@ -257,6 +257,7 @@ giveMeAJoke.getRandomDadJoke((joke) => {
 
 - [React Components Codepen](https://codepen.io/robinkyl002/pen/ogvrpEb?editors=0110)
 - [React Routes](https://codepen.io/robinkyl002/pen/GgKbxgL?editors=0110)
+- [React: Reactivity](https://codepen.io/robinkyl002/pen/xbxbjaz?editors=0010)
 
 ### Class Notes
 
@@ -425,3 +426,10 @@ JSON
 Local storage
 
 - Store information locally in the individual user's browser
+
+#### Interactivity
+
+Properties to components - parent component passes to child component, if data changes, render again
+State on components - initial state and then if state changes, render again
+
+- useState creates array with first item as the default value, and the second as the function to update the value
