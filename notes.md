@@ -258,6 +258,7 @@ giveMeAJoke.getRandomDadJoke((joke) => {
 - [React Components Codepen](https://codepen.io/robinkyl002/pen/ogvrpEb?editors=0110)
 - [React Routes](https://codepen.io/robinkyl002/pen/GgKbxgL?editors=0110)
 - [React: Reactivity](https://codepen.io/robinkyl002/pen/xbxbjaz?editors=0010)
+- [JavaScript Arrays](https://codepen.io/robinkyl002/pen/gbObzaq?editors=0011)
 
 ### Class Notes
 
