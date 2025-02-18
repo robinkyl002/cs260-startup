@@ -13,11 +13,14 @@ export default function App() {
   const [userName, setUserName] = React.useState(
     localStorage.getItem("userName") || ""
   );
-  // const currentAuthState = userName
-  //   ? AuthState.Authenticated
-  //   : AuthState.Unauthenticated;
-  const currentAuthState = AuthState.Unauthenticated;
+  const currentAuthState = userName
+    ? AuthState.Authenticated
+    : AuthState.Unauthenticated;
+  // const currentAuthState = AuthState.Authenticated;
+  console.log(currentAuthState);
   const [authState, setAuthState] = React.useState(currentAuthState);
+  console.log(authState);
+  console.log(userName);
 
   return (
     <BrowserRouter>
