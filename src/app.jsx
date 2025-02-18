@@ -7,14 +7,16 @@ import { Login } from "./login/login";
 import { Recipes } from "./recipes/recipes";
 import { New } from "./new/new";
 import { View } from "./view/view";
+import { AuthState } from "./login/authState";
 
 export default function App() {
   const [userName, setUserName] = React.useState(
     localStorage.getItem("userName") || ""
   );
-  const currentAuthState = userName
-    ? AuthState.Authenticated
-    : AuthState.Unauthenticated;
+  // const currentAuthState = userName
+  //   ? AuthState.Authenticated
+  //   : AuthState.Unauthenticated;
+  const currentAuthState = AuthState.Unauthenticated;
   const [authState, setAuthState] = React.useState(currentAuthState);
 
   return (
@@ -26,30 +28,47 @@ export default function App() {
               <div className="navbar-brand">Let's Eat!</div>
               <menu className="navbar-nav">
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/">
+                  <NavLink className="nav-link" to="">
                     Home
                   </NavLink>
                 </li>
-                <li className="nav-item">
-                  <NavLink className="nav-link" to="recipes">
-                    My Recipes
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink className="nav-link" to="new">
-                    Add a Recipe
-                  </NavLink>
-                </li>
+                {authState === AuthState.Authenticated && (
+                  <li className="nav-item">
+                    <NavLink className="nav-link" to="recipes">
+                      My Recipes
+                    </NavLink>
+                  </li>
+                )}
+                {authState === AuthState.Authenticated && (
+                  <li className="nav-item">
+                    <NavLink className="nav-link" to="new">
+                      Add a Recipe
+                    </NavLink>
+                  </li>
+                )}
               </menu>
             </div>
           </nav>
         </header>
 
         {/* <main className="container-fluid bg-white text-center">
-                Placeholder for app components
-            </main> */}
+          Placeholder for app components
+        </main> */}
         <Routes>
-          <Route path="/" element={<Login />} exact />
+          <Route
+            path="/"
+            element={
+              <Login
+                userName={userName}
+                authState={authState}
+                onAuthChange={(userName, authState) => {
+                  setAuthState(authState);
+                  setUserName(userName);
+                }}
+                exact
+              />
+            }
+          />
           <Route path="/recipes" element={<Recipes />} />
           <Route path="/new" element={<New />} />
           <Route path="/view" element={<View />} />
