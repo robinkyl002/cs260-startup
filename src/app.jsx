@@ -54,9 +54,6 @@ export default function App() {
           </nav>
         </header>
 
-        {/* <main className="container-fluid bg-white text-center">
-          Placeholder for app components
-        </main> */}
         <Routes>
           <Route
             path="/"
