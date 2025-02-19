@@ -16,11 +16,7 @@ export default function App() {
   const currentAuthState = userName
     ? AuthState.Authenticated
     : AuthState.Unauthenticated;
-  // const currentAuthState = AuthState.Authenticated;
-  console.log(currentAuthState);
   const [authState, setAuthState] = React.useState(currentAuthState);
-  console.log(authState);
-  console.log(userName);
 
   return (
     <BrowserRouter>
@@ -31,7 +27,7 @@ export default function App() {
               <div className="navbar-brand">Let's Eat!</div>
               <menu className="navbar-nav">
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="">
+                  <NavLink className="nav-link" to="/">
                     Home
                   </NavLink>
                 </li>
