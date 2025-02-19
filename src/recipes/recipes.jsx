@@ -4,6 +4,21 @@ import "./recipes.css";
 import { useNavigate } from "react-router-dom";
 
 export function Recipes() {
+  const [userRecipes, setUserRecipes] = React.useState([]);
+  const [suggestedRecipes, setSuggestedRecipes] = React.useState([]);
+
+  React.useEffect(() => {
+    const recipesText = localStorage.getItem("userRecipes");
+    if (recipesText) {
+      setUserRecipes(JSON.parse(recipesText));
+    }
+  }, []);
+
+  const recipeCards = [];
+  if (recipeCards) {
+  } else {
+  }
+
   return (
     <main id="all-recipes">
       <aside id="users">
