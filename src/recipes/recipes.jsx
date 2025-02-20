@@ -3,6 +3,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./recipes.css";
 import { useNavigate } from "react-router-dom";
 import { Suggested } from "./suggested";
+import { UserRecipes } from "./userRecipes";
+import { Activity } from "./activity";
 
 export function Recipes() {
   const [userRecipes, setUserRecipes] = React.useState([]);
