@@ -434,3 +434,124 @@ Properties to components - parent component passes to child component, if data c
 State on components - initial state and then if state changes, render again
 
 - useState creates array with first item as the default value, and the second as the function to update the value
+
+#### Promises
+
+- Browser rendering is single threading (can't run multiple things in parallel)
+- I promise to call you back
+- promise states
+  - pending - currently running asynchronously
+  - fulfilled - completed successfully
+  - rejected - failed to complete
+
+```
+// name of function passed in can be anything, but in the back it will be a resolve function
+function callback(resolve) {
+ setTimeout(() => {
+   resolve('done');
+ }, 5000);
+}
+
+const p = new Promise(callback);
+
+p.then((result) => console.log(`in then ${result}`));
+```
+
+```
+function goShop(item) {
+  return (resolve) => {
+   setTimeout(() => {
+   resolve(item);
+  }, 5000);
+  }
+}
+
+const p = new Promise(goShop('Milk'));
+
+p.then((result) => console.log(result));
+```
+
+```
+function coinToss() { new Promise((resolve, reject) => {
+  setTimeout(() => {
+    if (Math.random() > 0.1) {
+      resolve(Math.random() > 0.5 ? 'heads' : 'tails');
+    } else {
+      reject('fell off table');
+    }
+  }, 3000);
+});
+}
+
+coinToss()
+  .then((result) => console.log(`Toss result: ${result}`))
+  .catch((err) => console.error(`Error: ${err}`))
+ .finally(() => console.log('Toss completed'));
+```
+
+```
+// placeOrder returns promise
+// then returns promise
+// catch handles exceptions or reject state
+// finally is always called, regardless of fulfilled or rejected
+
+placeOrder(order)
+   .then((order) => makePizza(order))
+   .then((order) => serveOrder(order))
+   .catch((order) => orderFailure(order))
+  .finally(() => logOrder(order));
+```
+
+#### Async/Await
+
+- Await blocks until resolves or rejects
+- await only works with promises
+- Use await when you want to make sure that code stops until result is received
+- await is still doing then, just puts everything following in a new then block
+
+```
+try {
+  const result = await coinToss;
+  console.log(`Toss result ${result}`);
+} catch (err) {
+  console.error(`Error: ${err}`);
+} finally {
+  console.log(`Toss completed`);
+}
+```
+
+```
+// async indicates that promise is returned
+async function cow() {
+  return new Promise((resolve) => {
+    resolve('moo');
+  });
+}
+
+//await blocks until resolves or rejects
+console.log(await cow());
+// OUTPUT: moo
+```
+
+- Rule for using await
+  - top level module function or called from async function
+  - All parent functions must use async
+
+```
+async function cow() {
+  return new Promise((resolve) => {
+    resolve('moo');
+  });
+}
+
+async function cattleDrive() {
+  await cow();
+  await cow();
+  return "cows came home";
+}
+
+console.log(await cattleDrive());
+// OUTPUT: cows came home
+```
+
+- **Remember that async will auto-generate promise if not explicitly returned**
