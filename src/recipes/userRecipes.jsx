@@ -16,6 +16,15 @@ export function UserRecipes() {
   const recipeCards = [];
   if (userRecipes.length) {
   } else {
+    <div className="col">
+      <div className="card">
+        <img className="card-img-top my-recipe-images" alt="no recipe"></img>
+        <div className="card-body">
+          <h4 className="card-title">Get started by adding a recipe!</h4>
+          <AddRecipe />
+        </div>
+      </div>
+    </div>;
   }
   return (
     <>
@@ -102,8 +111,22 @@ function ViewRecipe() {
   };
 
   return (
-    <button class="btn btn-primary" onClick={handleClick}>
+    <Button variant="primary" onClick={handleClick}>
       View Recipe
-    </button>
+    </Button>
+  );
+}
+
+function AddRecipe() {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/add");
+  };
+
+  return (
+    <Button variant="primary" onClick={handleClick}>
+      Add a Recipe
+    </Button>
   );
 }
