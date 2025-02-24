@@ -23,6 +23,7 @@ export function Recipes() {
 
   return (
     <main id="all-recipes">
+      <Activity />
       <aside id="users">
         <span>User: Cooking Fanatic</span>
         <ul>
