@@ -15,11 +15,27 @@ export function UserRecipes() {
 
   const recipeCards = [];
   if (userRecipes.length) {
+    for (const [i, recipe] of userRecipes.entries) {
+      userRecipes.push(
+        <div className="col">
+          <div className="card">
+            <img
+              className="card-img-top my-recipe-images"
+              src={recipe.imageLink}
+              alt={recipe.recipeName}
+            />
+            <div className="card-body">
+              <h4 className="card-title">{recipe.recipeName}</h4>
+              <ViewRecipe />
+            </div>
+          </div>
+        </div>
+      );
+    }
   } else {
     recipeCards.push(
       <div className="col">
         <div className="card">
-          <img className="card-img-top my-recipe-images" alt="no recipe"></img>
           <div className="card-body">
             <h4 className="card-title">Get started by adding a recipe!</h4>
             <AddRecipe />
@@ -35,7 +51,8 @@ export function UserRecipes() {
         id="user-recipes"
         className="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-6"
       >
-        <div className="col">
+        {recipeCards}
+        {/* <div className="col">
           <div className="card">
             <img
               src="/french-toast.jpg"
@@ -99,7 +116,7 @@ export function UserRecipes() {
               <button className="btn btn-primary">View Recipe</button>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );
