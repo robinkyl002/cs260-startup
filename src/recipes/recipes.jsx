@@ -6,7 +6,8 @@ import { Suggested } from "./suggested";
 import { UserRecipes } from "./userRecipes";
 import { Activity } from "./activity";
 
-export function Recipes() {
+export function Recipes(props) {
+  const userName = props.userName;
   const [userRecipes, setUserRecipes] = React.useState([]);
 
   React.useEffect(() => {
@@ -23,14 +24,7 @@ export function Recipes() {
 
   return (
     <main id="all-recipes">
-      <Activity />
-      <aside id="users">
-        <span>User: Cooking Fanatic</span>
-        <ul>
-          <li>Susan just added Crepes</li>
-          <li>Jason just added Apple Fritter</li>
-        </ul>
-      </aside>
+      <Activity userName={userName} />
 
       <h2>My Recipes</h2>
       <UserRecipes />
