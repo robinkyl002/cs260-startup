@@ -4,6 +4,19 @@ import "./recipes.css";
 import { useNavigate } from "react-router-dom";
 
 export function UserRecipes() {
+  const [userRecipes, setUserRecipes] = React.useState([]);
+
+  React.useEffect(() => {
+    const recipesText = localStorage.getItem("userRecipes");
+    if (recipesText) {
+      setUserRecipes(JSON.parse(recipesText));
+    }
+  }, []);
+
+  const recipeCards = [];
+  if (userRecipes.length) {
+  } else {
+  }
   return (
     <>
       <h2>My Recipes</h2>
