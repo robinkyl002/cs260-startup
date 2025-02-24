@@ -1,4 +1,5 @@
 import React, { use } from "react";
+import { Card } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./recipes.css";
 import { useNavigate } from "react-router-dom";
@@ -13,11 +14,16 @@ export function UserRecipes() {
     }
   }, []);
 
-  const recipeCards = [];
+  //   const recipeCards = [];
+
+  const recipeCards = [
+    { recipeName: "French Toast", recipeIngredients: "" },
+    { recipeName: "Apple Fritter", recipeIngredients: "" },
+  ];
   if (userRecipes.length) {
     for (const [i, recipe] of userRecipes.entries) {
       userRecipes.push(
-        <div className="col">
+        <div className="col" key={i}>
           <div className="card">
             <img
               className="card-img-top my-recipe-images"
@@ -51,8 +57,8 @@ export function UserRecipes() {
         id="user-recipes"
         className="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-6"
       >
-        {recipeCards}
-        {/* <div className="col">
+        {/* {recipeCards} */}
+        <div className="col">
           <div className="card">
             <img
               src="/french-toast.jpg"
@@ -116,7 +122,7 @@ export function UserRecipes() {
               <button className="btn btn-primary">View Recipe</button>
             </div>
           </div>
-        </div> */}
+        </div>
       </div>
     </>
   );
