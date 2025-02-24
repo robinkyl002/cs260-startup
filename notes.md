@@ -506,6 +506,8 @@ placeOrder(order)
 
 #### Async/Await
 
+- [Async/Await Codepen](https://codepen.io/robinkyl002/pen/GgRjKWx?editors=0010)
+
 - Await blocks until resolves or rejects
 - await only works with promises
 - Use await when you want to make sure that code stops until result is received
