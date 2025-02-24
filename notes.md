@@ -437,6 +437,8 @@ State on components - initial state and then if state changes, render again
 
 #### Promises
 
+- [Promises Codepen](https://codepen.io/robinkyl002/pen/bNGwbem?editors=0010)
+
 - Browser rendering is single threading (can't run multiple things in parallel)
 - I promise to call you back
 - promise states
