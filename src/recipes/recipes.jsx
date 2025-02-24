@@ -25,10 +25,7 @@ export function Recipes(props) {
   return (
     <main id="all-recipes">
       <Activity userName={userName} />
-
-      <h2>My Recipes</h2>
       <UserRecipes />
-
       <Suggested />
     </main>
   );
