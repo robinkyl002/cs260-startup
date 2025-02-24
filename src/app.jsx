@@ -65,7 +65,7 @@ export default function App() {
               />
             }
           />
-          <Route path="/recipes" element={<Recipes />} />
+          <Route path="/recipes" element={<Recipes userName={userName} />} />
           <Route path="/new" element={<New />} />
           <Route path="/view" element={<View />} />
           <Route path="*" element={<NotFound />} />
