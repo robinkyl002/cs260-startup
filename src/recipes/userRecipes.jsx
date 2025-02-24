@@ -16,15 +16,17 @@ export function UserRecipes() {
   const recipeCards = [];
   if (userRecipes.length) {
   } else {
-    <div className="col">
-      <div className="card">
-        <img className="card-img-top my-recipe-images" alt="no recipe"></img>
-        <div className="card-body">
-          <h4 className="card-title">Get started by adding a recipe!</h4>
-          <AddRecipe />
+    recipeCards.push(
+      <div className="col">
+        <div className="card">
+          <img className="card-img-top my-recipe-images" alt="no recipe"></img>
+          <div className="card-body">
+            <h4 className="card-title">Get started by adding a recipe!</h4>
+            <AddRecipe />
+          </div>
         </div>
       </div>
-    </div>;
+    );
   }
   return (
     <>
@@ -111,9 +113,9 @@ function ViewRecipe() {
   };
 
   return (
-    <Button variant="primary" onClick={handleClick}>
+    <button className="btn btn-primary" onClick={handleClick}>
       View Recipe
-    </Button>
+    </button>
   );
 }
 
@@ -125,8 +127,8 @@ function AddRecipe() {
   };
 
   return (
-    <Button variant="primary" onClick={handleClick}>
+    <button className="btn btn-primary" onClick={handleClick}>
       Add a Recipe
-    </Button>
+    </button>
   );
 }
