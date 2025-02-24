@@ -5,7 +5,7 @@ import "./recipes.css";
 export function Activity(props) {
   return (
     <aside id="users">
-      <span>User: {props.userName}</span>
+      <span>User: {props.userName.split("@")[0]}</span>
       <ul>
         <li>Susan just added Crepes</li>
         <li>Jason just added Apple Fritter</li>
