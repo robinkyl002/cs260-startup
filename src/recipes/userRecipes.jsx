@@ -14,14 +14,6 @@ export function UserRecipes() {
     }
   }, []);
 
-  userRecipes.push({ recipeName: "French Toast", imgUrl: "/french-toast.jpg" });
-  userRecipes.push({
-    recipeName: "Apple Fritter",
-    imgUrl: "/apple-fritter.jpg",
-  });
-
-  //   const recipeCards = [];
-
   const recipeCards = [];
   if (userRecipes.length) {
     for (const [i, recipe] of userRecipes.entries()) {
@@ -61,71 +53,6 @@ export function UserRecipes() {
         className="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-6"
       >
         {recipeCards}
-        <div className="col">
-          <div className="card">
-            <img
-              src="/french-toast.jpg"
-              className="card-img-top my-recipe-images"
-              alt="french toast"
-            />
-            <div className="card-body">
-              <h4 className="card-title">French Toast</h4>
-              <ViewRecipe />
-            </div>
-          </div>
-        </div>
-        <div className="col">
-          <div className="card">
-            <img
-              src="/apple-fritter.jpg"
-              className="card-img-top my-recipe-images"
-              alt="apple fritter"
-            />
-            <div className="card-body">
-              <h4 className="card-title">Apple Fritter</h4>
-              <button className="btn btn-primary">View Recipe</button>
-            </div>
-          </div>
-        </div>
-        <div className="col">
-          <div className="card">
-            <img
-              src="/chocolate-chip-cookies.jpeg"
-              className="card-img-top my-recipe-images"
-              alt="chocolate chip cookies"
-            />
-            <div className="card-body">
-              <h4 className="card-title">Chocolate Chip Cookies</h4>
-              <button className="btn btn-primary">View Recipe</button>
-            </div>
-          </div>
-        </div>
-        <div className="col">
-          <div className="card">
-            <img
-              src="/shepherds-pie.jpg"
-              className="card-img-top my-recipe-images"
-              alt="Shepherd's Pie"
-            />
-            <div className="card-body">
-              <h4 className="card-title">Shepherd's Pie</h4>
-              <button className="btn btn-primary">View Recipe</button>
-            </div>
-          </div>
-        </div>
-        <div className="col">
-          <div className="card">
-            <img
-              src="/Spaghetti.jpg"
-              className="card-img-top my-recipe-images"
-              alt="spaghetti"
-            />
-            <div className="card-body">
-              <h4 className="card-title">Spaghetti</h4>
-              <button className="btn btn-primary">View Recipe</button>
-            </div>
-          </div>
-        </div>
       </div>
     </>
   );
