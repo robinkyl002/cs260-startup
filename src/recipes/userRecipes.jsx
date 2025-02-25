@@ -14,20 +14,23 @@ export function UserRecipes() {
     }
   }, []);
 
+  userRecipes.push({ recipeName: "French Toast", imgUrl: "/french-toast.jpg" });
+  userRecipes.push({
+    recipeName: "Apple Fritter",
+    imgUrl: "/apple-fritter.jpg",
+  });
+
   //   const recipeCards = [];
 
-  const recipeCards = [
-    { recipeName: "French Toast", recipeIngredients: "" },
-    { recipeName: "Apple Fritter", recipeIngredients: "" },
-  ];
+  const recipeCards = [];
   if (userRecipes.length) {
-    for (const [i, recipe] of userRecipes.entries) {
-      userRecipes.push(
+    for (const [i, recipe] of userRecipes.entries()) {
+      recipeCards.push(
         <div className="col" key={i}>
           <div className="card">
             <img
               className="card-img-top my-recipe-images"
-              src={recipe.imageLink}
+              src={recipe.imgUrl}
               alt={recipe.recipeName}
             />
             <div className="card-body">
@@ -57,7 +60,7 @@ export function UserRecipes() {
         id="user-recipes"
         className="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-6"
       >
-        {/* {recipeCards} */}
+        {recipeCards}
         <div className="col">
           <div className="card">
             <img
