@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 import "./new.css";
 
@@ -62,5 +63,21 @@ export function New() {
         </span>
       </form>
     </main>
+  );
+}
+
+function AddRecipe() {}
+
+function Cancel() {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/recipes");
+  };
+
+  return (
+    <button className="btn btn-secondary" onClick={handleClick}>
+      Cancel
+    </button>
   );
 }
