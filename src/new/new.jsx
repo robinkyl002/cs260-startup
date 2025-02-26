@@ -1,9 +1,16 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { Button } from "react-bootstrap";
 
 import "./new.css";
 
 export function New() {
+  const navigate = useNavigate();
+
+  let userName = localStorage.getItem("userName");
+
+  const addRecipe = () => {};
+
   return (
     <main id="new-recipe">
       <div id="page-title">
@@ -53,32 +60,33 @@ export function New() {
             multiple
           />
         </div>
-        <span id="new-recipe-buttons">
-          <button className="btn btn-primary" type="submit">
+        <div id="new-recipe-buttons">
+          <AddRecipe userName={userName} />
+
+          <Button variant="primary" onClick={addRecipe}>
             Add
-          </button>
-          <Cancel />
-          {/* <button className="btn btn-secondary" type="submit">
+          </Button>
+          <Button variant="secondary" onClick={() => navigate("/recipes")}>
             Cancel
-          </button> */}
-        </span>
+          </Button>
+        </div>
       </form>
     </main>
   );
 }
 
-function AddRecipe() {}
-
-function Cancel() {
+function AddRecipe(props) {
   const navigate = useNavigate();
 
-  const handleClick = () => {
-    navigate("/recipes");
-  };
+  // let userName = localStorage.getItem("userName");
+  const userName = props.userName;
 
+  const handleClick = () => {
+    navigate("/recipes", { state: { userName: userName } });
+  };
   return (
-    <button className="btn btn-secondary" onClick={handleClick}>
-      Cancel
+    <button className="btn btn-primary" onClick={handleClick}>
+      Add
     </button>
   );
 }
