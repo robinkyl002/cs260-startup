@@ -57,9 +57,10 @@ export function New() {
           <button className="btn btn-primary" type="submit">
             Add
           </button>
-          <button className="btn btn-secondary" type="submit">
+          <Cancel />
+          {/* <button className="btn btn-secondary" type="submit">
             Cancel
-          </button>
+          </button> */}
         </span>
       </form>
     </main>
