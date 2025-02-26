@@ -5,11 +5,16 @@ import { Button } from "react-bootstrap";
 import "./new.css";
 
 export function New() {
+  const [ingredients, setIngredients] = React.useState("");
+  const [instructions, setInstructions] = React.useState("");
+
   const navigate = useNavigate();
 
-  let userName = localStorage.getItem("userName");
+  // const userName = localStorage.getItem("userName");
 
-  const addRecipe = () => {};
+  const addRecipe = () => {
+    navigate("/recipes");
+  };
 
   return (
     <main id="new-recipe">
@@ -33,6 +38,7 @@ export function New() {
             aria-label="Recipe Ingredients"
             rows="15"
             cols="50"
+            onChange={(e) => setIngredients(e.target.value)}
           ></textarea>
         </div>
         <div className="input-group mb-3">
@@ -44,6 +50,7 @@ export function New() {
             aria-label="Recipe Instructions"
             rows="15"
             cols="50"
+            onChange={(e) => setInstructions(e.target.value)}
           ></textarea>
         </div>
         <div className="input-group mb-3">
