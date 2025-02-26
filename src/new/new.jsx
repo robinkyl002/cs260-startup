@@ -5,6 +5,7 @@ import { Button } from "react-bootstrap";
 import "./new.css";
 
 export function New() {
+  const [name, setName] = React.useState("");
   const [ingredients, setIngredients] = React.useState("");
   const [instructions, setInstructions] = React.useState("");
 
@@ -26,7 +27,12 @@ export function New() {
           <label for="recipe-name" className="form-label">
             Recipe name:
           </label>
-          <input type="text" className="form-control" id="recipe-name"></input>
+          <input
+            type="text"
+            className="form-control"
+            id="recipe-name"
+            onChange={(e) => setName(e.target.value)}
+          ></input>
         </div>
         <div className="input-group mb-3">
           <label for="recipe-ingredients" className="form-label">
@@ -68,9 +74,13 @@ export function New() {
           />
         </div>
         <div id="new-recipe-buttons">
-          <AddRecipe userName={userName} />
+          {/* <AddRecipe /> */}
 
-          <Button variant="primary" onClick={addRecipe}>
+          <Button
+            variant="primary"
+            onClick={addRecipe}
+            disabled={!name || !instructions || !ingredients}
+          >
             Add
           </Button>
           <Button variant="secondary" onClick={() => navigate("/recipes")}>
