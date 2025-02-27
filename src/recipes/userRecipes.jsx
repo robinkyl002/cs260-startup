@@ -18,7 +18,6 @@ export function UserRecipes() {
   const recipeCards = [];
   if (userRecipes.length) {
     for (const [i, recipe] of userRecipes.entries()) {
-      let currRecipeName = recipe.recipeName;
       recipeCards.push(
         <div className="col" key={i}>
           <div className="card">
@@ -32,12 +31,11 @@ export function UserRecipes() {
               <Button
                 variant="primary"
                 onClick={() => {
-                  navigate("/view", { recipeName: recipe.recipeName });
+                  navigate("/view", { state: { recipeId: recipe.recipeName } });
                 }}
               >
                 View
               </Button>
-              {/* <ViewRecipe /> */}
             </div>
           </div>
         </div>
