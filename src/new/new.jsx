@@ -8,7 +8,9 @@ export function New() {
   const [recipeName, setRecipeName] = React.useState("");
   const [ingredients, setIngredients] = React.useState("");
   const [instructions, setInstructions] = React.useState("");
-  const [image, setImage] = React.useState();
+  const [image, setImage] = React.useState(
+    "data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs="
+  );
 
   const navigate = useNavigate();
 
