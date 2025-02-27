@@ -1,10 +1,11 @@
 import React, { use } from "react";
-import { Card } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./recipes.css";
 import { useNavigate } from "react-router-dom";
 
 export function UserRecipes() {
+  const navigate = useNavigate();
   const [userRecipes, setUserRecipes] = React.useState([]);
 
   React.useEffect(() => {
@@ -17,6 +18,7 @@ export function UserRecipes() {
   const recipeCards = [];
   if (userRecipes.length) {
     for (const [i, recipe] of userRecipes.entries()) {
+      let currRecipeName = recipe.recipeName;
       recipeCards.push(
         <div className="col" key={i}>
           <div className="card">
@@ -27,7 +29,15 @@ export function UserRecipes() {
             />
             <div className="card-body">
               <h4 className="card-title">{recipe.recipeName}</h4>
-              <ViewRecipe />
+              <Button
+                variant="primary"
+                onClick={() => {
+                  navigate("/view", { recipeName: recipe.recipeName });
+                }}
+              >
+                View
+              </Button>
+              {/* <ViewRecipe /> */}
             </div>
           </div>
         </div>
@@ -39,7 +49,9 @@ export function UserRecipes() {
         <div className="card">
           <div className="card-body">
             <h4 className="card-title">Get started by adding a recipe!</h4>
-            <AddRecipe />
+            <Button variant="primary" onClick={() => navigate("/new")}>
+              Add a Recipe
+            </Button>
           </div>
         </div>
       </div>
@@ -55,33 +67,5 @@ export function UserRecipes() {
         {recipeCards}
       </div>
     </>
-  );
-}
-
-function ViewRecipe() {
-  const navigate = useNavigate();
-
-  const handleClick = () => {
-    navigate("/view");
-  };
-
-  return (
-    <button className="btn btn-primary" onClick={handleClick}>
-      View Recipe
-    </button>
-  );
-}
-
-function AddRecipe() {
-  const navigate = useNavigate();
-
-  const handleClick = () => {
-    navigate("/add");
-  };
-
-  return (
-    <button className="btn btn-primary" onClick={handleClick}>
-      Add a Recipe
-    </button>
   );
 }
