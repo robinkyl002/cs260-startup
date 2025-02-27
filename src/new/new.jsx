@@ -44,26 +44,16 @@ export function New() {
 
   async function createDataURL() {
     const imgEl = document.getElementById("recipe-picture");
-    let url;
 
     const fr = new FileReader();
-    console.log(imgEl.files[0]);
 
+    fr.onloadend = function () {
+      const dataURL = fr.result;
+      let url = dataURL;
+
+      setImage(url);
+    };
     fr.readAsDataURL(imgEl.files[0]);
-
-    await fr.addEventListener("load", () => {
-      url = fr.result;
-      setImage(fr.result);
-      console.log(url);
-
-      // setImage(url);
-      console.log(image);
-    });
-
-    // setImage(url);
-
-    // console.log(url);
-    console.log(image);
   }
 
   return (
@@ -139,21 +129,5 @@ export function New() {
         </div>
       </form>
     </main>
-  );
-}
-
-function AddRecipe(props) {
-  const navigate = useNavigate();
-
-  // let userName = localStorage.getItem("userName");
-  const userName = props.userName;
-
-  const handleClick = () => {
-    navigate("/recipes", { state: { userName: userName } });
-  };
-  return (
-    <button className="btn btn-primary" onClick={handleClick}>
-      Add
-    </button>
   );
 }
