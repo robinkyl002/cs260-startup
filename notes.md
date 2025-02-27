@@ -559,3 +559,117 @@ console.log(await cattleDrive());
 ```
 
 - **Remember that async will auto-generate promise if not explicitly returned**
+
+## Web Services
+
+- Ask server to return on certain port
+
+### Express
+
+- express - constructor and default functionality
+- app - service application
+- req - request object
+- res - response object
+- router - adding child routing
+
+```
+// import express
+const express = require('express');
+
+// create app from express object
+const app = express();
+
+// define endpoint
+// req is all request info
+// res is response
+// get request
+// path is specified as first part in get request
+app.get('*', (req, res) => {
+    // send response
+ res.send(404, '<h1>Not Found</h1>');
+});
+
+// start listening on port
+app.listen(3000, () => {
+    console.log('Server is running on http://localhost:3000');
+});
+```
+
+### Static Files
+
+```
+// use means that it will do this for any request type
+app.use(express.static('public'));
+
+// need to add public directory with files that will be displayed
+```
+
+### Responses
+
+```
+// HTML
+res.send('<p>Some <b>html</b></p>')
+res.send('simple text')
+
+// JSON
+// will change to JSON before sending
+res.send({ x: '3', y: 4 })
+res.json({ x: '3', y: 4 })
+```
+
+order of handlers matters because what is first will be run first
+
+```
+res.redirect(301, 'https://cs260.click')
+
+res.sendFile('index.html', { root: 'public' });
+
+res.status(400).send('trouble in River City')
+res.send(400, 'trouble in River City')
+```
+
+### Middleware
+
+- Generic code that only runs other pieces of code
+- Request comes into Express app
+- next parameter allows you to use multiple middleware
+
+```
+function noBobs(req, res, next) {
+ /bob/.test(req.path) ? res.status(401).send('No Bobs!') : next();
+}
+app.get('*', noBobs, (req, res) => {
+ res.send('<p>Hello</p>');
+});
+
+```
+
+```
+// colon indicates parameter placeholder that you can pull out and manipulate
+app.get('/store/:id/:time', (req, res) => {
+ res.send({ id: req.params.id, time: req.params.time });
+});
+
+// wildcard accesses anything
+app.put('/*/:id', (req, res) => {
+ res.send({ update: req.params.id });
+});
+
+//regex
+app.delete(/\/store\/(.+)/, (req, res) => {
+ res.send({ delete: req.params[0] });
+});
+
+
+```
+
+```
+// Parsing JSON requests
+// assigns req.body to JSON received
+app.use(express.json());
+
+app.put('/data', (req, res) => {
+ res.send(req.body.msg);
+});
+
+```
