@@ -3,14 +3,23 @@ import { useLocation } from "react-router-dom";
 import "./view.css";
 
 export function View(props) {
+  const [userRecipes, setUserRecipes] = React.useState([]);
   const location = useLocation();
 
   const recipeName = location.state.recipeId;
 
+  function getRecipeDetailsLocal(recipe) {
+    const recipesText = localStorage.getItem("userRecipes");
+
+    if (recipesText) {
+      setUserRecipes(JSON.parse(recipesText));
+    }
+  }
+
   return (
     <main id="recipe-view">
       <div id="recipe_image">
-        <img id="current-recipe" alt="French Toast" src="/french-toast.jpg" />
+        <img id="current-recipe" alt={recipeName} src="/french-toast.jpg" />
       </div>
       <div id="recipe-text-elements">
         <h1>{recipeName}</h1>
