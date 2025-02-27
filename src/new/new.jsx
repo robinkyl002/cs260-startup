@@ -5,17 +5,64 @@ import { Button } from "react-bootstrap";
 import "./new.css";
 
 export function New() {
-  const [name, setName] = React.useState("");
+  const [recipeName, setRecipeName] = React.useState("");
   const [ingredients, setIngredients] = React.useState("");
   const [instructions, setInstructions] = React.useState("");
+  const [image, setImage] = React.useState();
 
   const navigate = useNavigate();
 
-  // const userName = localStorage.getItem("userName");
-
   const addRecipe = () => {
+    saveRecipeLocal();
+
     navigate("/recipes");
   };
+
+  function saveRecipeLocal() {
+    let recipes = [];
+    const userRecipes = localStorage.getItem("userRecipes");
+
+    if (userRecipes) {
+      recipes = JSON.parse(userRecipes);
+    }
+
+    let recipeDetails = {
+      recipeName: recipeName,
+      ingredients: ingredients,
+      instructions: instructions,
+      imgUrl: image,
+    };
+
+    console.log(recipeDetails);
+
+    recipes.push(recipeDetails);
+
+    localStorage.setItem("userRecipes", JSON.stringify(recipes));
+  }
+
+  async function createDataURL() {
+    const imgEl = document.getElementById("recipe-picture");
+    let url;
+
+    const fr = new FileReader();
+    console.log(imgEl.files[0]);
+
+    fr.readAsDataURL(imgEl.files[0]);
+
+    await fr.addEventListener("load", () => {
+      url = fr.result;
+      setImage(fr.result);
+      console.log(url);
+
+      // setImage(url);
+      console.log(image);
+    });
+
+    // setImage(url);
+
+    // console.log(url);
+    console.log(image);
+  }
 
   return (
     <main id="new-recipe">
@@ -31,7 +78,7 @@ export function New() {
             type="text"
             className="form-control"
             id="recipe-name"
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => setRecipeName(e.target.value)}
           ></input>
         </div>
         <div className="input-group mb-3">
@@ -71,6 +118,7 @@ export function New() {
             name="varFile"
             accept="image/*"
             multiple
+            onChange={createDataURL}
           />
         </div>
         <div id="new-recipe-buttons">
@@ -79,7 +127,7 @@ export function New() {
           <Button
             variant="primary"
             onClick={addRecipe}
-            disabled={!name || !instructions || !ingredients}
+            disabled={!recipeName || !instructions || !ingredients}
           >
             Add
           </Button>
