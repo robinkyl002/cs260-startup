@@ -123,7 +123,7 @@ export function New() {
           >
             Add
           </Button>
-          <Button variant="secondary" onClick={() => navigate("/recipes")}>
+          <Button variant="secondary" onClick={() => navigate(-1)}>
             Cancel
           </Button>
         </div>
