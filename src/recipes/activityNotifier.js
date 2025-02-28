@@ -10,10 +10,12 @@ class ActivityNotifier {
  handlers = [];
  
  constructor() {
+    const recipeExamples = ["Beef Stew", "Crepes", "Creme Brulee", "Cajun Chicken Pasta", "Chicken Alfredo", "Chicken Pot Pie", "Farmer's Casserole", "Spaghetti", "Ham Fried Rice", "Teriyaki Chicken", "Panko Sesame Chicken", "Swissburgers"];
+    
     setInterval(() => {
-        
         const userName = 'Fred';
-        this.broadcastEvent(userName, );
+        const recipe = recipeExamples.at(Math.floor(Math.random() * (recipeExamples.length-1)));
+        this.broadcastEvent(userName, recipe);
     }, 15000);
  }
  broadcastEvent(from, recipe) {
