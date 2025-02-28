@@ -35,8 +35,6 @@ export function New() {
       imgUrl: image,
     };
 
-    console.log(recipeDetails);
-
     recipes.push(recipeDetails);
 
     localStorage.setItem("userRecipes", JSON.stringify(recipes));
