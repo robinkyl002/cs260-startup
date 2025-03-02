@@ -27,7 +27,6 @@ export function Activity(props) {
   function createMessageArray() {
     const messageArray = [];
     for (const [i, event] of events.entries()) {
-      console.log(event.recipe);
       let message = ` added ${event.recipe}`;
 
       messageArray.push(
