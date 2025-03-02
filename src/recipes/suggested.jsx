@@ -5,10 +5,11 @@ import "./recipes.css";
 import { useNavigate } from "react-router-dom";
 
 export function Suggested() {
-  const [suggested, setSuggested] = React.useState([]);
-  const [firstSuggestedName, setFirstSuggestedName] = React.useState("");
+  //   const [suggested, setSuggested] = React.useState([]);
+  const [firstSuggestedName, setFirstSuggestedName] = React.useState("Loading");
   const [firstSuggestedLink, setFirstSuggestedLink] = React.useState("");
-  const [secondSuggestedName, setSecondSuggestedName] = React.useState("");
+  const [secondSuggestedName, setSecondSuggestedName] =
+    React.useState("Loading");
   const [secondSuggestedLink, setSecondSuggestedLink] = React.useState("");
   const suggestedRecipesArray = [
     {
