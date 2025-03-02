@@ -93,8 +93,8 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **All functionality implemented or mocked out** - I did not complete this part of the deliverable.
-- [ ] **Hooks** - I did not complete this part of the deliverable.
+- [x] **All functionality implemented or mocked out** - Used local storage to store recipe details including the dataURLs for the images. Mocked out the websocket with a timer. Used an array of recipes to mock out web service retrieving suggested recipes.
+- [x] **Hooks** - Used the useEffect hook in most or all of my components to track various points of data
 
 ## 🚀 Service deliverable
 
