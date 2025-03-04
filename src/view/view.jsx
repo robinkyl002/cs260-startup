@@ -42,25 +42,23 @@ export function View(props) {
 
   function addNewLines(input) {
     const output = [];
-    // let count = 0;
     let line = "";
 
     for (let i = 0; i < input.length; i++) {
       if (input.at(i) == "\n") {
-        // output += "<br />";
         output.push(<li style={{ listStyleType: "none" }}>{line}</li>);
 
         line = "";
-        // count++;
       } else {
         line += input.at(i);
+
+        if (i === input.length - 1) {
+          output.push(<li style={{ listStyleType: "none" }}>{line}</li>);
+        }
       }
     }
-    // console.log(count);
     return output;
   }
-
-  let formattedIngredients = addNewLines(ingredients);
 
   return (
     <main id="recipe-view">
@@ -72,30 +70,10 @@ export function View(props) {
         <div id="ingredients" className="recipe-details">
           <h3>Ingredients</h3>
           <ul>{ingredients}</ul>
-          {/* <ul>
-            <li>Bread</li>
-            <li>Eggs</li>
-            <li>Cinnamon</li>
-            <li>Vanilla</li>
-          </ul> */}
         </div>
         <div id="instructions" className="recipe-details">
           <h3>Instructions</h3>
           <p>{instructions}</p>
-          {/* <ol>
-            <li>
-              Mix together the eggs, cinnamon, and vanilla in a large, shallow
-              bowl
-            </li>
-            <li>
-              Take a piece of bread and coat both sides by placing it in the
-              mix, then turning it over to coat the other side
-            </li>
-            <li>
-              Cook in the pan until the toast is golden brown, and the egg
-              mixture is no longer liquid
-            </li>
-          </ol> */}
         </div>
       </div>
     </main>
