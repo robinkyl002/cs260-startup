@@ -673,3 +673,81 @@ app.put('/data', (req, res) => {
 });
 
 ```
+
+## Login
+
+Authentication vs authorization
+
+- pass auth token to service, validate
+- Authentication protocols
+  - OAuth - newest, most widely used
+  - SAML - really old
+  - CAS
+  - OIDC
+- SSO (single sign on) store credentials from other group
+  - Auth0
+  - Google
+  - Facebook
+  - Duo
+  - AWS
+- Custom Authentication
+  - Store user credentials
+  - Verify credentials
+  - Restrict access
+- Bcrypt
+  - salt, hash, and compare
+  - layers of security
+  - hash - convert string to hash, compare hashed values
+  - salt - pair string with hashed password
+  - npm install bcryptjs
+
+```
+const bcrypt = require('bcryptjs');
+const express = require('express');
+const app = express();
+
+app.use(express.json());
+
+const passwords = {};
+
+// create a new data point
+app.post('/register', async (req, res) => {
+  const hashedPassword = await bcrypt.hash(req.body.password, 10);
+  passwords[req.body.user] = hashedPassword;
+  res.send({ user: req.body.user });
+});
+
+// update
+app.put('/login', async (req, res) => {
+  const hashedPassword = passwords[req.body.user];
+  if (hashedPassword && (await bcrypt.compare(req.body.password, hashedPassword))) {
+    res.send({ user: req.body.user });
+  } else {
+    res.send(401, { msg: 'invalid user or password' });
+  }
+});
+
+app.listen(3000);
+```
+
+Authorization Tokens
+
+- `npm install uuid`
+- universal unique identifier
+- creates unique token
+
+```
+const uuid = require ('uuid');
+
+const const token = uuid.v4();
+```
+
+Cookies
+
+- Response when you are authenticated
+  - `Set-Cookie: token=x83yzi; Secure; HttpOnly; SameSite=Strict`
+  - HTTPS only because of secure
+  - JS can't access cookie
+  - only give back to site that issued it
+- Send token back
+- `npm install express cookie-parser uuid`
