@@ -28,7 +28,6 @@ export function Suggested() {
       recipeName: "Crepes",
       link: "https://www.allrecipes.com/recipe/16383/basic-crepes/",
     },
-    // "Creme Brulee",
     {
       recipeName: "Cajun Chicken Pasta",
       link: "https://natashaskitchen.com/creamy-cajun-chicken-pasta/",
@@ -57,54 +56,46 @@ export function Suggested() {
       recipeName: "Teriyaki Chicken",
       link: "https://www.cookingclassy.com/teriyaki-chicken/",
     },
-    // "Panko Sesame Chicken",
-    // "Swissburgers",
   ];
 
   React.useEffect(() => {
-    let temp;
-    let tempArray = [];
-    let index = 0;
+    let index = Math.floor(Math.random() * (suggestedRecipesArray.length - 1));
 
-    // for (let i = 0; i < 2; i++) {
-    index = Math.floor(Math.random() * (suggestedRecipesArray.length - 1));
-    temp = suggestedRecipesArray.at(index);
+    setFirstSuggestedName(suggestedRecipesArray[index].recipeName);
+    setFirstSuggestedLink(suggestedRecipesArray[index].link);
 
-    setFirstSuggestedName(temp.recipeName);
-    setFirstSuggestedLink(temp.link);
-
-    tempArray = suggestedRecipesArray;
-    tempArray.splice(index, 1);
-
-    temp = tempArray.at(
-      Math.floor(Math.random() * (suggestedRecipesArray.length - 1))
+    let newIndex = Math.floor(
+      Math.random() * (suggestedRecipesArray.length - 1)
     );
-
-    setSecondSuggestedName(temp.recipeName);
-    setSecondSuggestedLink(temp.link);
-  }, []);
-
-  function createCards() {
-    const cards = [];
-
-    for (const [i, item] of suggested) {
-      cards.push(
-        <div className="col">
-          <div className="card">
-            <div className="card-body">
-              <h4 className="card-title">{item.recipeName}</h4>
-              <Button variant="primary" href={item.link}>
-                View Recipe
-              </Button>
-            </div>
-          </div>
-        </div>
-      );
+    while (newIndex === index) {
+      newIndex = Math.floor(Math.random() * (suggestedRecipesArray.length - 1));
     }
 
-    console.log(cards);
-    return cards;
-  }
+    setSecondSuggestedLink(suggestedRecipesArray[newIndex].link);
+    setSecondSuggestedName(suggestedRecipesArray[newIndex].recipeName);
+  }, []);
+
+  // function createCards() {
+  //   const cards = [];
+
+  //   for (const [i, item] of suggested) {
+  //     cards.push(
+  //       <div className="col">
+  //         <div className="card">
+  //           <div className="card-body">
+  //             <h4 className="card-title">{item.recipeName}</h4>
+  //             <Button variant="primary" href={item.link}>
+  //               View Recipe
+  //             </Button>
+  //           </div>
+  //         </div>
+  //       </div>
+  //     );
+  //   }
+
+  //   console.log(cards);
+  //   return cards;
+  // }
 
   return (
     <>
@@ -125,9 +116,9 @@ export function Suggested() {
           <div className="card">
             <div className="card-body">
               <h4 className="card-title">{secondSuggestedName}</h4>
-              <button className="btn btn-primary" href={secondSuggestedLink}>
+              <Button variant="primary" href={secondSuggestedLink}>
                 View Recipe
-              </button>
+              </Button>
             </div>
           </div>
         </div>
