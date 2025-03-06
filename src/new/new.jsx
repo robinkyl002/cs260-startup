@@ -14,11 +14,20 @@ export function New() {
 
   const navigate = useNavigate();
 
-  const addRecipe = () => {
+  async function addRecipe() {
     saveRecipeLocal();
 
     navigate("/recipes");
-  };
+  }
+
+  async function saveRecipe() {
+    const newRecipe = {
+      recipeName: recipeName,
+      ingredients: ingredients,
+      instructions: instructions,
+      imgUrl: image,
+    };
+  }
 
   function saveRecipeLocal() {
     let recipes = [];
