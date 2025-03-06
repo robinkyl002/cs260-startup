@@ -95,7 +95,11 @@ app.use((_req, res) => {
     res.sendFile('index.html', { root: 'public' });
 });
 
+function updateRecipes(newRecipe) {
+    recipes.push(newRecipe);
 
+    return recipes;
+}
 
 
 async function createUser(email, password) {
