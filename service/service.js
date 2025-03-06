@@ -9,6 +9,10 @@ const authCookieName = "token";
 // Service port on 4000
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
 
+//variables
+let users = [];
+let recipes = [];
+
 // JSON body parsing using built-in middleware
 app.use(express.json());
 
