@@ -9,10 +9,16 @@ export function UserRecipes() {
   const [userRecipes, setUserRecipes] = React.useState([]);
 
   React.useEffect(() => {
-    const recipesText = localStorage.getItem("userRecipes");
-    if (recipesText) {
-      setUserRecipes(JSON.parse(recipesText));
-    }
+    // const recipesText = localStorage.getItem("userRecipes");
+    // if (recipesText) {
+    //   setUserRecipes(JSON.parse(recipesText));
+    // }
+
+    fetch("/api/recipes")
+      .then((response) => response.json())
+      .then((recipes) => {
+        setUserRecipes(recipes);
+      });
   }, []);
 
   const recipeCards = [];
