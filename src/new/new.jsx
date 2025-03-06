@@ -15,18 +15,22 @@ export function New() {
   const navigate = useNavigate();
 
   async function addRecipe() {
-    saveRecipeLocal();
+    // saveRecipeLocal();
 
-    navigate("/recipes");
-  }
-
-  async function saveRecipe() {
     const newRecipe = {
       recipeName: recipeName,
       ingredients: ingredients,
       instructions: instructions,
       imgUrl: image,
     };
+
+    await fetch("/recipes", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(newRecipe),
+    });
+
+    navigate("/recipes");
   }
 
   function saveRecipeLocal() {
