@@ -73,14 +73,23 @@ const verifyAuth = async (req, res, next) => {
 };
 
 
+// GET for view component
 
-// add get for recipes
+apiRouter.get("/recipe", verifyAuth, (req, res) => {
+    let recipeName = req.body;
+
+    const recipe = findRecipe(recipeName);
+
+    res.send(recipe);
+})
+
+// GET for all recipes
 apiRouter.get("/recipes", verifyAuth, (_req, res) => {
     res.send(recipes);
 })
 
 
-// add post for recipes
+// POST for new recipe
 apiRouter.post("/recipe", verifyAuth, (req, res) => {
     recipes = updateRecipes(req.body);
     res.send(recipes);
@@ -101,6 +110,30 @@ function updateRecipes(newRecipe) {
     recipes.push(newRecipe);
 
     return recipes;
+}
+
+function findRecipe(recipeName) {
+    // let found = false;
+    for (const [i, recipe] of recipes.entries()) {
+        if (recipe.recipeName === recipeName) {
+            // found = true;
+
+            let recipeDetails = {
+                recipeName: recipeName,
+                ingredients: recipe.ingredients,
+                instructions: recipe.instructions,
+                imgUrl: recipe.imgUrl,
+            }
+
+            // setImgURL(recipe.imgUrl);
+            // setIngredients(addNewLines(recipe.ingredients));
+            // setInstructions(addNewLines(recipe.instructions));
+
+            return recipeDetails;
+
+            // break;
+        }
+    }
 }
 
 
