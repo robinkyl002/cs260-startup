@@ -79,7 +79,10 @@ const verifyAuth = async (req, res, next) => {
 
 
 // add post for recipes
-
+apiRouter.post("/recipes", verifyAuth, (req, res) => {
+    recipes = updateRecipes(req.body);
+    res.send(recipes);
+})
 
 
 // Default error handler
