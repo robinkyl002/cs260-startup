@@ -75,7 +75,9 @@ const verifyAuth = async (req, res, next) => {
 
 
 // add get for recipes
-
+apiRouter.get("/recipes", verifyAuth, (_req, res) => {
+    res.send(recipes);
+})
 
 
 // add post for recipes
