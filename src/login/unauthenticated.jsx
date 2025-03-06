@@ -12,14 +12,14 @@ export function Unauthenticated(props) {
     // localStorage.setItem("userName", userName);
     // props.onLogin(userName);
 
-    loginOrCreate("/api/auth/login");
+    loginOrCreate(`/api/auth/login`);
   }
 
   async function createUser() {
     // localStorage.setItem("userName", userName);
     // props.onLogin(userName);
 
-    loginOrCreate("/api/auth/create");
+    loginOrCreate(`/api/auth/create`);
   }
 
   async function loginOrCreate(endpoint) {
