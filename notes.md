@@ -751,3 +751,141 @@ Cookies
   - only give back to site that issued it
 - Send token back
 - `npm install express cookie-parser uuid`
+
+## Storage Services
+
+Deployment
+
+- Deployment in the enterprise world is far more complicated
+- In industry
+- Creation and individual testing -> CI testing analysis -> Version Repository (All possible versions that might be deployed) -> deploy to production system
+- Other types of environments -
+  - staging (dummy data - internal look at future version)
+  - sales, other environment (dummy data) - sandbox version
+  - load testing environment
+  - penetration testing
+- Frontend code
+  - index.html
+  - index.jsx
+  - package.json
+  - public directory
+  - src directory
+- Backend code
+  - service directory
+    - index.js
+    - package.json
+  - deploy script requires this configuration
+- Deployment script changes file format to allow service file to find frontend code
+- Having them run separately allows you to make UI changes without having to restart backend
+
+```
+# deployService.sh script
+
+# It will only get stuff from these flags
+while getopts k:h:s: flag
+do
+    case "${flag}" in
+        k) key=${OPTARG};;
+        h) hostname=${OPTARG};;
+        s) service=${OPTARG};;
+    esac
+done
+
+# If it is missing one of the flags, print this out
+if [[ -z "$key" || -z "$hostname" || -z "$service" ]]; then
+    printf "\nMissing required parameter.\n"
+    printf "  syntax: deployService.sh -k <pem key file> -h <hostname> -s <service>\n\n"
+    exit 1
+fi
+
+printf "\n----> Deploying React bundle $service to $hostname with $key\n"
+
+# Step 1
+printf "\n----> Build the distribution package\n"
+# Get rid of build folder in case previous build failed
+rm -rf build
+mkdir build
+npm install # make sure vite is installed so that we can bundle
+npm run build # build the React front end
+cp -rf dist build/public # move the React front end to the target distribution
+cp service/*.js build # move the back end service to the target distribution
+cp service/*.json build
+
+# Step 2
+printf "\n----> Clearing out previous distribution on the target\n"
+ssh -i "$key" ubuntu@$hostname << ENDSSH
+# Remove current directory
+rm -rf services/${service}
+# create new services directory
+mkdir -p services/${service}
+ENDSSH
+
+# Step 3
+printf "\n----> Copy the distribution package to the target\n"
+scp -r -i "$key" build/* ubuntu@$hostname:services/$service
+
+# Step 4
+printf "\n----> Deploy the service on the target\n"
+ssh -i "$key" ubuntu@$hostname << ENDSSH
+bash -i
+cd services/${service}
+npm install
+pm2 restart ${service}
+ENDSSH
+
+# Step 5
+printf "\n----> Removing local copy of the distribution package\n"
+rm -rf build
+rm -rf dist
+```
+
+### Uploading Files
+
+- `npm install express multer`
+  - multer handles HTTP file transfer
+
+```
+const express = require('express');
+const multer = require('multer');
+
+const app = express();
+
+app.use(express.static('public'));
+
+const upload = multer({
+  storage: multer.diskStorage({
+    destination: 'public/',
+    filename: (req, file, cb) => {
+      const filetype = file.originalname.split('.').pop();
+      const id = Math.round(Math.random() * 1e9);
+      const filename = `${id}.${filetype}`;
+      cb(null, filename);
+    },
+  }),
+  limits: { fileSize: 64000 },
+});
+
+app.post('/upload', upload.single('file'), (req, res) => {
+  if (req.file) {
+    res.send({
+      message: 'Uploaded succeeded',
+      file: req.file.filename,
+    });
+  } else {
+    res.status(400).send({ message: 'Upload failed' });
+  }
+});
+
+app.use((err, req, res, next) => {
+  if (err instanceof multer.MulterError) {
+    res.status(413).send({ message: err.message });
+  } else {
+    res.status(500).send({ message: err.message });
+  }
+});
+
+app.listen(3000, () => {
+  console.log('Server is running on port 3000');
+});
+
+```
