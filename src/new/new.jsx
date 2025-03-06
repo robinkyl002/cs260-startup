@@ -24,7 +24,7 @@ export function New() {
       imgUrl: image,
     };
 
-    await fetch("/recipes", {
+    await fetch("/api/recipe", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(newRecipe),

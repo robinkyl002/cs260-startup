@@ -81,7 +81,7 @@ apiRouter.get("/recipes", verifyAuth, (_req, res) => {
 
 
 // add post for recipes
-apiRouter.post("/recipes", verifyAuth, (req, res) => {
+apiRouter.post("/recipe", verifyAuth, (req, res) => {
     recipes = updateRecipes(req.body);
     res.send(recipes);
 })
