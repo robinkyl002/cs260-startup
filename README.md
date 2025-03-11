@@ -100,11 +100,11 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Node.js/Express HTTP service** - I did not complete this part of the deliverable.
-- [ ] **Static middleware for frontend** - I did not complete this part of the deliverable.
-- [ ] **Calls to third party endpoints** - I did not complete this part of the deliverable.
-- [ ] **Backend service endpoints** - I did not complete this part of the deliverable.
-- [ ] **Frontend calls service endpoints** - I did not complete this part of the deliverable.
+- [x] **Node.js/Express HTTP service** - Installed express using NPM and set it up to use port 4000.
+- [x] **Static middleware for frontend** - Simple endpoints in `service/index`
+- [x] **Calls to third party endpoints** - Suggested component makes calls to `https://themealdb.p.rapidapi.com/random.php` for random recipes, then renders the JSON using React.
+- [x] **Backend service endpoints** - Mocked calls removed from frontend and replaced with calls to the service
+- [x] **Frontend calls service endpoints** - Full support for authentication. Restricted access to recipes
 
 ## 🚀 DB/Login deliverable
 
