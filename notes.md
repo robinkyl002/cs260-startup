@@ -889,3 +889,51 @@ app.listen(3000, () => {
 });
 
 ```
+
+## Data Services/Database (MongoDB)
+
+- SQL - main general purpose tool
+- Redis - storing in memory for faster access
+- elasticsearch - searching documents
+- MongoDB - easy access for web devs
+- DynamoDB - Key value pairs
+- Neo4J - graph based data
+- InfluxDB - time series
+
+Collection of schema free JSON
+
+```
+[
+  {
+    _id: '63b9da7f79',
+    name: 'Mystery player',
+    score: 0,
+    $date: '1/7/2023',
+  },
+  {
+    _id: '63befb45b3',
+    name: 'tim@mailinator.com',
+    score: 7,
+    observer: ['63bdf9d855', '63b9da7f79'],
+    $date: '1/11/2023',
+  },
+  {
+    _id: '63bdf9d855',
+    name: '지안@id.com',
+    $date: '1/10/2023',
+  },
+];
+```
+
+- each item is called a document
+-
+
+- `dbconfig.json`
+
+```
+{
+ "hostname": // put hostname here,
+ "userName": // put username here,
+ "password": // put password here
+}
+```
