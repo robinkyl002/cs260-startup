@@ -15,8 +15,6 @@ export function New() {
   const navigate = useNavigate();
 
   async function addRecipe() {
-    // saveRecipeLocal();
-
     const newRecipe = {
       recipeName: recipeName,
       ingredients: ingredients,
@@ -31,26 +29,6 @@ export function New() {
     });
 
     navigate("/recipes");
-  }
-
-  function saveRecipeLocal() {
-    let recipes = [];
-    const userRecipes = localStorage.getItem("userRecipes");
-
-    if (userRecipes) {
-      recipes = JSON.parse(userRecipes);
-    }
-
-    let recipeDetails = {
-      recipeName: recipeName,
-      ingredients: ingredients,
-      instructions: instructions,
-      imgUrl: image,
-    };
-
-    recipes.push(recipeDetails);
-
-    localStorage.setItem("userRecipes", JSON.stringify(recipes));
   }
 
   async function createDataURL() {
@@ -125,8 +103,6 @@ export function New() {
           />
         </div>
         <div id="new-recipe-buttons">
-          {/* <AddRecipe /> */}
-
           <Button
             variant="primary"
             onClick={addRecipe}
