@@ -72,17 +72,6 @@ const verifyAuth = async (req, res, next) => {
     }
 };
 
-
-// GET for view component
-
-apiRouter.get("/recipe", verifyAuth, (req, res) => {
-    let recipeName = req.body;
-
-    const recipe = findRecipe(recipeName);
-
-    res.send(recipe);
-})
-
 // GET for all recipes
 apiRouter.get("/recipes", verifyAuth, (_req, res) => {
     res.send(recipes);
