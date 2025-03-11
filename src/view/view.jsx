@@ -4,7 +4,6 @@ import "./view.css";
 
 export function View(props) {
   const [recipes, setRecipes] = React.useState([]);
-  // let userRecipes = [];
   const [imgURL, setImgURL] = React.useState(
     "data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs="
   );
