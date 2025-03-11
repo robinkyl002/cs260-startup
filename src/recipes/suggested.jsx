@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./recipes.css";
-import { useNavigate } from "react-router-dom";
+import { data, useNavigate } from "react-router-dom";
 
 export function Suggested() {
   //   const [suggested, setSuggested] = React.useState([]);
@@ -60,6 +60,14 @@ export function Suggested() {
 
   React.useEffect(() => {
     let index = Math.floor(Math.random() * (suggestedRecipesArray.length - 1));
+
+    fetch("www.themealdb.com/api/json/v1/1/random.php")
+      .then((response) => {
+        response.text();
+      })
+      .then((text) => {
+        console.log(text);
+      });
 
     setFirstSuggestedName(suggestedRecipesArray[index].recipeName);
     setFirstSuggestedLink(suggestedRecipesArray[index].link);
