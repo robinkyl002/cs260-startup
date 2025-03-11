@@ -3,7 +3,8 @@ import { useLocation } from "react-router-dom";
 import "./view.css";
 
 export function View(props) {
-  let userRecipes = [];
+  const [recipes, setRecipes] = React.useState([]);
+  // let userRecipes = [];
   const [imgURL, setImgURL] = React.useState(
     "data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs="
   );
@@ -13,32 +14,24 @@ export function View(props) {
 
   const recipeName = location.state.recipeId;
 
-  function getRecipeDetailsLocal(recipeName) {
-    const recipesText = localStorage.getItem("userRecipes");
+  React.useEffect(() => {
+    fetch("/api/recipes")
+      .then((response) => response.json())
+      .then((recipes) => {
+        setRecipes(recipes);
+      });
+  }, []);
 
-    if (recipesText) {
-      userRecipes = JSON.parse(recipesText);
-      // console.log(userRecipes);
-    }
-
-    // console.log(userRecipes[0]);
-    let found = false;
-    for (const [i, recipe] of userRecipes.entries()) {
-      if (recipe.recipeName === recipeName) {
-        found = true;
-
+  React.useEffect(() => {
+    if (recipes.length) {
+      const recipe = recipes.find((r) => r.recipeName === recipeName);
+      if (recipe) {
         setImgURL(recipe.imgUrl);
         setIngredients(addNewLines(recipe.ingredients));
         setInstructions(addNewLines(recipe.instructions));
-
-        break;
       }
     }
-  }
-
-  React.useEffect(() => {
-    getRecipeDetailsLocal(recipeName);
-  }, []);
+  }, [recipes, recipeName]);
 
   function addNewLines(input) {
     const output = [];
