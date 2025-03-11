@@ -2,10 +2,11 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./recipes.css";
-import { data, useNavigate } from "react-router-dom";
+import apiConfig from "./apiConfig";
 
 export function Suggested() {
-  //   const [suggested, setSuggested] = React.useState([]);
+  const [suggested, setSuggested] = React.useState([]);
+  // const [firstSuggested, setFirstSuggested] = React.useState([]);
   const [firstSuggestedName, setFirstSuggestedName] = React.useState("Loading");
   const [firstSuggestedLink, setFirstSuggestedLink] = React.useState("");
   const [secondSuggestedName, setSecondSuggestedName] =
@@ -58,58 +59,106 @@ export function Suggested() {
     },
   ];
 
-  React.useEffect(() => {
-    let index = Math.floor(Math.random() * (suggestedRecipesArray.length - 1));
+  async function getRecipes() {
+    const url = "https://themealdb.p.rapidapi.com/random.php";
+    const options = {
+      method: "GET",
+      headers: {
+        "x-rapidapi-key": apiConfig.key,
+        "x-rapidapi-host": apiConfig.host,
+      },
+    };
 
-    fetch("www.themealdb.com/api/json/v1/1/random.php")
-      .then((response) => {
-        response.text();
-      })
-      .then((text) => {
-        console.log(text);
-      });
+    try {
+      const response = await fetch(url, options);
+      const result = await response.json();
+      // const recipe = result.at(1);
 
-    setFirstSuggestedName(suggestedRecipesArray[index].recipeName);
-    setFirstSuggestedLink(suggestedRecipesArray[index].link);
+      const recipe = {
+        recipeName: result.meals.at(0).strMeal,
+        imgURL: result.meals.at(0).strSource,
+      };
 
-    let newIndex = Math.floor(
-      Math.random() * (suggestedRecipesArray.length - 1)
-    );
-    while (newIndex === index) {
-      newIndex = Math.floor(Math.random() * (suggestedRecipesArray.length - 1));
+      setFirstSuggestedName(recipe.recipeName);
+      setFirstSuggestedLink(recipe.imgURL);
+    } catch (error) {
+      console.error(error);
     }
 
-    setSecondSuggestedLink(suggestedRecipesArray[newIndex].link);
-    setSecondSuggestedName(suggestedRecipesArray[newIndex].recipeName);
+    try {
+      const response = await fetch(url, options);
+      const result = await response.json();
+      // const recipe = result.at(1);
+
+      const recipe2 = {
+        recipeName: result.meals.at(0).strMeal,
+        imgURL: result.meals.at(0).strSource,
+      };
+
+      setSecondSuggestedName(recipe2.recipeName);
+      setSecondSuggestedLink(recipe2.imgURL);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  React.useEffect(() => {
+    getRecipes();
+    // const url = "https://themealdb.p.rapidapi.com/random.php";
+    // const options = {
+    //   method: "GET",
+    //   headers: {
+    //     "x-rapidapi-key": apiConfig.key,
+    //     "x-rapidapi-host": apiConfig.host,
+    //   },
+    // };
+
+    // try {
+    //   const response = await fetch(url, options);
+    //   const result = await response.json();
+    //   // const recipe = result.at(1);
+
+    //   const recipe = {
+    //     recipeName: result.meals.at(0).strMeal,
+    //     imgURL: result.meals.at(0).strSource,
+    //   };
+    // } catch (error) {
+    //   console.error(error);
+    // }
+    // const recipe1 = getRecipes();
+    // console.log(recipe1);
+    // setFirstSuggestedName(recipe1.recipeName);
+    // setFirstSuggestedLink(recipe1.imgURL);
+    // fetch("themealdb.p.rapidapi.com/")
+    //   .then((response) => {
+    //     response.text();
+    //   })
+    //   .then((htmlString) => {
+    //     const parser = new DOMParser();
+    //     const htmlDocument = parser.parseFromString(htmlString, "text/html");
+
+    //     console.log(htmlDocument);
+
+    //     const element = htmlDocument.querySelectorAll(body);
+
+    //     console.log(element);
+    //   });
+
+    // setFirstSuggestedName(suggestedRecipesArray[index].recipeName);
+    // setFirstSuggestedLink(suggestedRecipesArray[index].link);
+
+    // let newIndex = Math.floor(
+    //   Math.random() * (suggestedRecipesArray.length - 1)
+    // );
+
+    // setSecondSuggestedLink(suggestedRecipesArray[newIndex].link);
+    // setSecondSuggestedName(suggestedRecipesArray[newIndex].recipeName);
   }, []);
-
-  // function createCards() {
-  //   const cards = [];
-
-  //   for (const [i, item] of suggested) {
-  //     cards.push(
-  //       <div className="col">
-  //         <div className="card">
-  //           <div className="card-body">
-  //             <h4 className="card-title">{item.recipeName}</h4>
-  //             <Button variant="primary" href={item.link}>
-  //               View Recipe
-  //             </Button>
-  //           </div>
-  //         </div>
-  //       </div>
-  //     );
-  //   }
-
-  //   console.log(cards);
-  //   return cards;
-  // }
 
   return (
     <>
       <h2>Suggested Recipes</h2>
       <div id="suggested-recipes" className="row row-cols-2 g-2">
-        {/* {createCards()} */}
         <div className="col">
           <div className="card">
             <div className="card-body">
