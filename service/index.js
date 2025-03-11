@@ -101,31 +101,6 @@ function updateRecipes(newRecipe) {
     return recipes;
 }
 
-function findRecipe(recipeName) {
-    // let found = false;
-    for (const [i, recipe] of recipes.entries()) {
-        if (recipe.recipeName === recipeName) {
-            // found = true;
-
-            let recipeDetails = {
-                recipeName: recipeName,
-                ingredients: recipe.ingredients,
-                instructions: recipe.instructions,
-                imgUrl: recipe.imgUrl,
-            }
-
-            // setImgURL(recipe.imgUrl);
-            // setIngredients(addNewLines(recipe.ingredients));
-            // setInstructions(addNewLines(recipe.instructions));
-
-            return recipeDetails;
-
-            // break;
-        }
-    }
-}
-
-
 async function createUser(email, password) {
     const passwordHash = await bcrypt.hash(password, 10);
 
