@@ -92,18 +92,14 @@ const upload = multer({
 // POST for file upload
 apiRouter.post("/upload", upload.single('file'), (req, res) => {
     if (req.file) {
-        // res.send({
-        //     message: 'Uploaded succeeded',
-        //     file: req.file.filename,
-        // });
-        const filePath = `/public/${req.file.filename}`; // Adjust based on your actual file storage path
+        const filePath = `/public/${req.file.filename}`;
 
         console.log(filePath);
         console.log(req.file.filename);
         res.send({
             message: 'Upload succeeded',
             file: req.file.filename,
-            filePath: filePath,  // Add full path for easier frontend use
+            filePath: filePath,
         });
     } else {
         res.status(400).send({ message: 'Upload failed' });
