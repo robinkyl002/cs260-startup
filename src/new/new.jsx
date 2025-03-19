@@ -63,7 +63,7 @@ export function New() {
         console.log(data.filePath);
         // const path = data.filePath.toString();
         // console.log(path);
-        setImage(data.filePath);
+        setImage(data.file);
       } else {
         alert(data.message);
       }
