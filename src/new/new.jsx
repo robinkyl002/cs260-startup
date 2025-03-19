@@ -29,20 +29,6 @@ export function New() {
     navigate("/recipes");
   }
 
-  async function createDataURL() {
-    const imgEl = document.getElementById("recipe-picture");
-
-    const fr = new FileReader();
-
-    fr.onloadend = function () {
-      const dataURL = fr.result;
-      let url = dataURL;
-
-      setImage(url);
-    };
-    fr.readAsDataURL(imgEl.files[0]);
-  }
-
   async function uploadFile(fileInput) {
     const file = fileInput.target.files[0];
 
@@ -53,16 +39,12 @@ export function New() {
 
       const response = await fetch("/api/upload", {
         method: "POST",
-        body: formData, // Don't set headers, FormData handles it
+        body: formData,
       });
 
       const data = await response.json();
       if (response.ok) {
         // Save the correct file path
-        console.log(data.file);
-        console.log(data.filePath);
-        // const path = data.filePath.toString();
-        // console.log(path);
         setImage(data.file);
       } else {
         alert(data.message);
