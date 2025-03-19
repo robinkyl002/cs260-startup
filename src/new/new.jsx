@@ -8,9 +8,7 @@ export function New() {
   const [recipeName, setRecipeName] = React.useState("");
   const [ingredients, setIngredients] = React.useState("");
   const [instructions, setInstructions] = React.useState("");
-  const [image, setImage] = React.useState(
-    "data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs="
-  );
+  const [image, setImage] = React.useState("/public/default-photo.jpg");
 
   const navigate = useNavigate();
 
@@ -43,6 +41,33 @@ export function New() {
       setImage(url);
     };
     fr.readAsDataURL(imgEl.files[0]);
+  }
+
+  async function uploadFile(fileInput) {
+    const file = fileInput.target.files[0];
+
+    // check to see that it is actually uploaded
+    if (file) {
+      const formData = new FormData();
+      formData.append("file", file);
+
+      const response = await fetch("/api/upload", {
+        method: "POST",
+        body: formData, // Don't set headers, FormData handles it
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        // Save the correct file path
+        console.log(data.file);
+        console.log(data.filePath);
+        // const path = data.filePath.toString();
+        // console.log(path);
+        setImage(data.filePath);
+      } else {
+        alert(data.message);
+      }
+    }
   }
 
   return (
@@ -99,7 +124,8 @@ export function New() {
             name="varFile"
             accept="image/*"
             multiple
-            onChange={createDataURL}
+            // onChange={createDataURL}
+            onChange={uploadFile}
           />
         </div>
         <div id="new-recipe-buttons">
