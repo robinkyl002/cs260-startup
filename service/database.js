@@ -35,3 +35,10 @@ async function updateUser(user) {
     await userCollection.updateOne({ email: user.email }, { $set: user });
 }
 
+
+module.exports = {
+    getUser,
+    getUserByToken,
+    addUser,
+    updateUser,
+};
