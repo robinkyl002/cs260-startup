@@ -17,3 +17,11 @@ const recipeCollection = db.collection('recipes');
         process.exit(1);
     }
 })()
+
+function getUser(email) {
+    return userCollection.findOne({ email: email });
+}
+
+function getUserByToken(token) {
+    return userCollection.findOne({ token: token });
+}
