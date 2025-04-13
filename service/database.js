@@ -35,10 +35,20 @@ async function updateUser(user) {
     await userCollection.updateOne({ email: user.email }, { $set: user });
 }
 
+async function addRecipe(recipe) {
+    return recipeCollection.insertOne(recipe);
+}
+
+async function getRecipes(user) {
+
+}
+
 
 module.exports = {
     getUser,
     getUserByToken,
     addUser,
     updateUser,
+    addRecipe,
+    getRecipes,
 };
