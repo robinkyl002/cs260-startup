@@ -43,7 +43,7 @@ async function getRecipes(user) {
     const query = { username: user };
 
     const cursor = recipeCollection.find(query);
-    return cursor.toArray();
+    return await cursor.toArray();
 }
 
 
