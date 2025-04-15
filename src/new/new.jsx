@@ -10,10 +10,13 @@ export function New() {
   const [instructions, setInstructions] = React.useState("");
   const [image, setImage] = React.useState("/public/default-photo.jpg");
 
+  const username = localStorage.getItem("userName");
+
   const navigate = useNavigate();
 
   async function addRecipe() {
     const newRecipe = {
+      username: username,
       recipeName: recipeName,
       ingredients: ingredients,
       instructions: instructions,
