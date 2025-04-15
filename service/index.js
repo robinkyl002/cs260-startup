@@ -13,8 +13,9 @@ const authCookieName = "token";
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
 
 //variables
-let users = [];
-let recipes = [];
+let userName = "";
+// let users = [];
+// let recipes = [];
 
 // JSON body parsing using built-in middleware
 app.use(express.json());
@@ -35,6 +36,7 @@ apiRouter.post('/auth/create', async (req, res) => {
         res.status(409).send({ msg: 'Existing user' });
     } else {
         const user = await createUser(req.body.email, req.body.password);
+        userName = req.body.email;
 
         setAuthCookie(res, user.token);
         res.send({ email: user.email });
@@ -48,6 +50,7 @@ apiRouter.post('/auth/login', async (req, res) => {
         if (await bcrypt.compare(req.body.password, user.password)) {
             user.token = uuid.v4();
             await DB.updateUser(user);
+            userName = req.body.email;
             setAuthCookie(res, user.token);
             res.send({ email: user.email });
             return;
@@ -61,6 +64,7 @@ apiRouter.delete('/auth/logout', async (req, res) => {
     const user = await findUser('token', req.cookies[authCookieName]);
     if (user) {
         delete user.token;
+        userName = "";
         DB.updateUser(user)
     }
     res.clearCookie(authCookieName);
@@ -110,14 +114,15 @@ apiRouter.post("/upload", upload.single('file'), (req, res) => {
 })
 
 // GET for all recipes
-apiRouter.get("/recipes", verifyAuth, (_req, res) => {
+apiRouter.get("/recipes", verifyAuth, async (_req, res) => {
+    const recipes = await DB.getRecipes(userName);
     res.send(recipes);
 })
 
 
 // POST for new recipe
 apiRouter.post("/recipe", verifyAuth, (req, res) => {
-    recipes = updateRecipes(req.body);
+    const recipes = updateRecipes(req.body);
     res.send(recipes);
 })
 
@@ -151,10 +156,13 @@ app.use((_req, res) => {
     res.sendFile('index.html', { root: 'public' });
 });
 
-function updateRecipes(newRecipe) {
-    recipes.push(newRecipe);
+async function updateRecipes(newRecipe) {
+    // recipes.push(newRecipe);
 
-    return recipes;
+    // return recipes;
+    await DB.addRecipe(newRecipe);
+    return DB.getRecipes(userName);
+
 }
 
 async function createUser(email, password) {
